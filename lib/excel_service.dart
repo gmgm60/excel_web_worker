@@ -1,11 +1,7 @@
 import 'dart:async';
 import 'dart:developer';
 import 'dart:typed_data';
-import 'package:flutter/foundation.dart' hide TargetPlatform; // For Offset, Size, etc.
-import 'package:flutter/services.dart' hide TargetPlatform;  // For TextDirection, Locale, etc.
-import 'package:excel/excel.dart' show Excel, Sheet, CellValue;
-//import 'package:file_picker/file_picker.dart' show PlatformFile;
-// import 'package:flutter/material.dart' show DataRow,DataCell,Text;
+import 'package:excel/excel.dart';
 import 'package:squadron/squadron.dart';
 
 import 'excel_service.activator.g.dart';
@@ -41,7 +37,7 @@ abstract class ExcelRepository {
 
   FutureOr<List<List<CellValue?>>> getData();
 
-  // List<DataRow> convertToDataRows(List<List<CellValue?>> excelData);
+// List<DataRow> convertToDataRows(List<List<CellValue?>> excelData);
 }
 
 // Implementation class that processes the Excel file
@@ -49,20 +45,26 @@ abstract class ExcelRepository {
     baseUrl: '~/workers',
     targetPlatform: TargetPlatform.vm | TargetPlatform.web)
 class ExcelFileRepository implements ExcelRepository {
-  late final Excel excel;
+  @ExcelMarshaler()
+  Excel? excel;
 
-  ExcelFileRepository();
+  ExcelFileRepository([this.excel]);
 
   @override
+  @SquadronMethod()
   Future<void> init(List<int> bytes) async {
     // final bytes = await file.readStream!.single;
-     excel = Excel.decodeBytes(bytes);
+    print("Worker init");
+    excel = Excel.decodeBytes(bytes);
+
+    print("Worker Number of sheets:  ${excel!.sheets.length} ");
+    // this.excel = excel;
   }
 
   @override
   @SquadronMethod()
   FutureOr<int> getColumnCount() {
-    final Sheet? sheet = excel.sheets[excel.sheets.keys.first];
+    final Sheet? sheet = excel!.sheets[excel!.sheets.keys.first];
     if (sheet == null || sheet.rows.isEmpty) return 0;
     return sheet.maxColumns;
   }
@@ -70,13 +72,13 @@ class ExcelFileRepository implements ExcelRepository {
   @override
   @SquadronMethod()
   FutureOr<String> getFileName() {
-    return excel.sheets.keys.first;
+    return excel!.sheets.keys.first;
   }
 
   @override
   @SquadronMethod()
   FutureOr<List<List<CellValue?>>> getData() {
-    final Sheet? sheet = excel.sheets[excel.sheets.keys.first];
+    final Sheet? sheet = excel!.sheets[excel!.sheets.keys.first];
     if (sheet == null) return [];
 
     return sheet.rows
@@ -84,16 +86,26 @@ class ExcelFileRepository implements ExcelRepository {
         .toList();
   }
 
-  // @override
-  // @SquadronMethod()
-  // List<DataRow> convertToDataRows(List<List<CellValue?>> excelData) {
-  //   return excelData.map((row) {
-  //     return DataRow(
-  //       cells: row.map((cell) {
-  //         return DataCell(
-  //             Text(cell?.toString() ?? '')); // Convert CellValue to String
-  //       }).toList(),
-  //     );
-  //   }).toList();
-  // }
+// @override
+// @SquadronMethod()
+// List<DataRow> convertToDataRows(List<List<CellValue?>> excelData) {
+//   return excelData.map((row) {
+//     return DataRow(
+//       cells: row.map((cell) {
+//         return DataCell(
+//             Text(cell?.toString() ?? '')); // Convert CellValue to String
+//       }).toList(),
+//     );
+//   }).toList();
+// }
+}
+
+class ExcelMarshaler implements SquadronMarshaler<Excel, List<int>> {
+  const ExcelMarshaler();
+
+  @override
+  List<int> marshal(Excel data) => data.encode()!;
+
+  @override
+  Excel unmarshal(List<int> data) => Excel.decodeBytes(data);
 }

@@ -541,9 +541,6 @@
     cast$1$0$ax(receiver, $T1) {
       return J.getInterceptor$ax(receiver).cast$1$0(receiver, $T1);
     },
-    cast$2$0$ax(receiver, $T1, $T2) {
-      return J.getInterceptor$ax(receiver).cast$2$0(receiver, $T1, $T2);
-    },
     compareTo$1$ns(receiver, a0) {
       return J.getInterceptor$ns(receiver).compareTo$1(receiver, a0);
     },
@@ -564,9 +561,6 @@
     },
     map$1$1$ax(receiver, a0, $T1) {
       return J.getInterceptor$ax(receiver).map$1$1(receiver, a0, $T1);
-    },
-    map$2$1$ax(receiver, a0, $T1, $T2) {
-      return J.getInterceptor$ax(receiver).map$2$1(receiver, a0, $T1, $T2);
     },
     noSuchMethod$1$(receiver, a0) {
       return J.getInterceptor$(receiver).noSuchMethod$1(receiver, a0);
@@ -712,17 +706,6 @@
     CastList: function CastList(t0, t1) {
       this._source = t0;
       this.$ti = t1;
-    },
-    CastMap: function CastMap(t0, t1) {
-      this._source = t0;
-      this.$ti = t1;
-    },
-    CastMap_forEach_closure: function CastMap_forEach_closure(t0, t1) {
-      this.$this = t0;
-      this.f = t1;
-    },
-    CastMap_entries_closure: function CastMap_entries_closure(t0) {
-      this.$this = t0;
     },
     LateError: function LateError(t0) {
       this._message = t0;
@@ -4637,9 +4620,7 @@
     },
     MapView: function MapView() {
     },
-    UnmodifiableMapView: function UnmodifiableMapView(t0, t1) {
-      this._collection$_map = t0;
-      this.$ti = t1;
+    UnmodifiableMapView: function UnmodifiableMapView() {
     },
     SetBase: function SetBase() {
     },
@@ -5222,6 +5203,13 @@
         B.JSArray_methods.add$1(list, t1.get$current(t1));
       return list;
     },
+    List_List$generate($length, generator, $E) {
+      var i,
+        result = J.JSArray_JSArray$growable($length, $E);
+      for (i = 0; i < $length; ++i)
+        B.JSArray_methods.$indexSet(result, i, generator.call$1(i));
+      return result;
+    },
     List_List$unmodifiable(elements, $E) {
       var result = A.List_List$from(elements, false, $E);
       result.$flags = 3;
@@ -5527,9 +5515,6 @@
       B.JSArray_methods.add$1(parts, penultimateString);
       B.JSArray_methods.add$1(parts, ultimateString);
     },
-    Map_castFrom(source, $K, $V, K2, V2) {
-      return new A.CastMap(source, $K._eval$1("@<0>")._bind$1($V)._bind$1(K2)._bind$1(V2)._eval$1("CastMap<1,2,3,4>"));
-    },
     num_parse(input) {
       var source = B.JSString_methods.trim$0(input),
         result = A.Primitives_parseInt(source, null);
@@ -5721,7 +5706,7 @@
     Object: function Object() {
     },
     _StringStackTrace: function _StringStackTrace(t0) {
-      this._stackTrace = t0;
+      this._core$_stackTrace = t0;
     },
     Runes: function Runes(t0) {
       this.string = t0;
@@ -7074,6 +7059,10 @@
       _._spanList = t6;
       _._sheetData = t7;
     },
+    Sheet_rows_closure: function Sheet_rows_closure(t0, t1) {
+      this.$this = t0;
+      this.rowIndex = t1;
+    },
     Sheet__countRowsAndColumns_closure: function Sheet__countRowsAndColumns_closure(t0, t1) {
       this._box_0 = t0;
       this.$this = t1;
@@ -7119,8 +7108,8 @@
     },
     _cellCoordsFromCellId_closure: function _cellCoordsFromCellId_closure() {
     },
-    $ExcelServiceInitializer($$$) {
-      return new A._$ExcelServiceWorkerService();
+    $ExcelFileRepositoryInitializer($$$) {
+      return new A._$ExcelFileRepositoryWorkerService(A._$X_$impl().$$dsr5$1(J.$index$asx(type$.List_dynamic._as(J.$index$asx($$$, 3)), 0)));
     },
     _$X$_() {
       return new A._$X();
@@ -7133,16 +7122,31 @@
       }
       return t1;
     },
-    ExcelService: function ExcelService() {
+    ExcelFileRepository: function ExcelFileRepository() {
     },
-    _$ExcelServiceWorkerService: function _$ExcelServiceWorkerService() {
-      this.___$ExcelServiceWorkerService_operations_FI = $;
+    ExcelFileRepository_getData_closure: function ExcelFileRepository_getData_closure() {
     },
-    _$ExcelServiceWorkerService_operations_closure: function _$ExcelServiceWorkerService_operations_closure(t0) {
+    ExcelFileRepository_getData__closure: function ExcelFileRepository_getData__closure() {
+    },
+    _$ExcelFileRepositoryWorkerService: function _$ExcelFileRepositoryWorkerService(t0) {
+      this.___$ExcelFileRepositoryWorkerService_operations_FI = $;
+      this.excel = t0;
+    },
+    _$ExcelFileRepositoryWorkerService_operations_closure: function _$ExcelFileRepositoryWorkerService_operations_closure(t0) {
+      this.$this = t0;
+    },
+    _$ExcelFileRepositoryWorkerService_operations_closure0: function _$ExcelFileRepositoryWorkerService_operations_closure0(t0) {
+      this.$this = t0;
+    },
+    _$ExcelFileRepositoryWorkerService_operations_closure1: function _$ExcelFileRepositoryWorkerService_operations_closure1(t0) {
+      this.$this = t0;
+    },
+    _$ExcelFileRepositoryWorkerService_operations_closure2: function _$ExcelFileRepositoryWorkerService_operations_closure2(t0) {
       this.$this = t0;
     },
     _$X: function _$X() {
-      this.___$X_$sr2_FI = this.___$X_$dsr1_FI = this.___$X_$dsr0_FI = $;
+      var _ = this;
+      _.___$X_$dsr5_FI = _.___$X_$dsr4_FI = _.___$X_$dsr3_FI = _.___$X_$dsr2_FI = _.___$X_$sr1_FI = _.___$X_$sr0_FI = $;
     },
     _$X_$impl_closure: function _$X_$impl_closure() {
     },
@@ -7719,30 +7723,16 @@
     },
     Converter0: function Converter0() {
     },
+    Converter_nullable_closure: function Converter_nullable_closure(t0, t1) {
+      this.op = t0;
+      this.T = t1;
+    },
     Converter_list_closure: function Converter_list_closure(t0) {
       this.T = t0;
     },
     Converter_list_closure0: function Converter_list_closure0(t0, t1) {
       this.op = t0;
       this.T = t1;
-    },
-    Converter_map_closure: function Converter_map_closure(t0, t1) {
-      this.K = t0;
-      this.V = t1;
-    },
-    Converter_map_closure0: function Converter_map_closure0(t0, t1, t2, t3) {
-      var _ = this;
-      _.kop = t0;
-      _.vop = t1;
-      _.K = t2;
-      _.V = t3;
-    },
-    Converter_map__closure: function Converter_map__closure(t0, t1, t2, t3) {
-      var _ = this;
-      _.kop = t0;
-      _.vop = t1;
-      _.K = t2;
-      _.V = t3;
     },
     SquadronCanceledException$(tokenId, message, stackTrace) {
       var t1 = new A.SquadronCanceledException(tokenId, message, stackTrace);
@@ -7752,7 +7742,7 @@
     SquadronCanceledException_SquadronCanceledException$from(tokenId, ex, stackTrace) {
       var t1, t2;
       if (ex instanceof A.SquadronTimeoutException)
-        return A.SquadronTimeoutException$(tokenId, ex.message, ex.duration, ex._squadron_exception$_stackTrace);
+        return A.SquadronTimeoutException$(tokenId, ex.message, ex.duration, ex._stackTrace);
       else if (ex instanceof A.SquadronCanceledExceptions) {
         t1 = ex._exceptions;
         t2 = A._arrayInstanceType(t1);
@@ -7780,7 +7770,7 @@
     SquadronCanceledException: function SquadronCanceledException(t0, t1, t2) {
       this.tokenId = t0;
       this.message = t1;
-      this._squadron_exception$_stackTrace = t2;
+      this._stackTrace = t2;
     },
     SquadronCanceledException_SquadronCanceledException$from_closure: function SquadronCanceledException_SquadronCanceledException$from_closure(t0) {
       this.tokenId = t0;
@@ -7801,7 +7791,7 @@
       _._exceptions = t0;
       _.tokenId = t1;
       _.message = t2;
-      _._squadron_exception$_stackTrace = t3;
+      _._stackTrace = t3;
     },
     SquadronCanceledExceptions_message_closure: function SquadronCanceledExceptions_message_closure() {
     },
@@ -7815,7 +7805,7 @@
     SquadronError: function SquadronError(t0, t1, t2) {
       this._squadron_error$_command = t0;
       this.message = t1;
-      this._squadron_exception$_stackTrace = t2;
+      this._stackTrace = t2;
     },
     SquadronException_from(error, stackTrace, command) {
       if (error instanceof A.WorkerException) {
@@ -7865,7 +7855,7 @@
       _.duration = t0;
       _.tokenId = t1;
       _.message = t2;
-      _._squadron_exception$_stackTrace = t3;
+      _._stackTrace = t3;
     },
     WorkerException$(message, stackTrace, command) {
       var t1 = new A.WorkerException(command, message, stackTrace);
@@ -7875,7 +7865,7 @@
     WorkerException: function WorkerException(t0, t1, t2) {
       this._command = t0;
       this.message = t1;
-      this._squadron_exception$_stackTrace = t2;
+      this._stackTrace = t2;
     },
     CancelationTokenReference: function CancelationTokenReference(t0, t1, t2) {
       var _ = this;
@@ -8611,7 +8601,7 @@
       return null;
     },
     main() {
-      A.bootstrap(A.excel_service__$ExcelServiceInitializer$closure(), null);
+      A.bootstrap(A.excel_service__$ExcelFileRepositoryInitializer$closure(), null);
     },
     resolve(parser, $R) {
       var todo, seen, t2, $parent, t3, _i, child, referenced,
@@ -9602,51 +9592,6 @@
       return this._source;
     }
   };
-  A.CastMap.prototype = {
-    cast$2$0(_, RK, RV) {
-      return new A.CastMap(this._source, this.$ti._eval$1("@<1,2>")._bind$1(RK)._bind$1(RV)._eval$1("CastMap<1,2,3,4>"));
-    },
-    $index(_, key) {
-      return this.$ti._eval$1("4?")._as(J.$index$asx(this._source, key));
-    },
-    forEach$1(_, f) {
-      J.forEach$1$ax(this._source, new A.CastMap_forEach_closure(this, this.$ti._eval$1("~(3,4)")._as(f)));
-    },
-    get$keys(_) {
-      var t1 = this.$ti;
-      return A.CastIterable_CastIterable(J.get$keys$x(this._source), t1._precomputed1, t1._rest[2]);
-    },
-    get$length(_) {
-      return J.get$length$asx(this._source);
-    },
-    get$isEmpty(_) {
-      return J.get$isEmpty$asx(this._source);
-    },
-    get$entries(_) {
-      return J.get$entries$x(this._source).map$1$1(0, new A.CastMap_entries_closure(this), this.$ti._eval$1("MapEntry<3,4>"));
-    }
-  };
-  A.CastMap_forEach_closure.prototype = {
-    call$2(key, value) {
-      var t1 = this.$this.$ti;
-      t1._precomputed1._as(key);
-      t1._rest[1]._as(value);
-      this.f.call$2(t1._rest[2]._as(key), t1._rest[3]._as(value));
-    },
-    $signature() {
-      return this.$this.$ti._eval$1("~(1,2)");
-    }
-  };
-  A.CastMap_entries_closure.prototype = {
-    call$1(e) {
-      var t1 = this.$this.$ti;
-      t1._eval$1("MapEntry<1,2>")._as(e);
-      return new A.MapEntry(t1._rest[2]._as(e.key), t1._rest[3]._as(e.value), t1._eval$1("MapEntry<3,4>"));
-    },
-    $signature() {
-      return this.$this.$ti._eval$1("MapEntry<3,4>(MapEntry<1,2>)");
-    }
-  };
   A.LateError.prototype = {
     toString$0(_) {
       return "LateInitializationError: " + this._message;
@@ -10068,10 +10013,6 @@
   A._Record_8.prototype = {$recipe: "+(1,2,3,4,5,6,7,8)", $shape: 5};
   A.ConstantMapView.prototype = {};
   A.ConstantMap.prototype = {
-    cast$2$0(_, RK, RV) {
-      var t1 = A._instanceType(this);
-      return A.Map_castFrom(this, t1._precomputed1, t1._rest[1], RK, RV);
-    },
     get$isEmpty(_) {
       return this.get$length(this) === 0;
     },
@@ -10807,13 +10748,13 @@
     call$2(o, tag) {
       return this.getUnknownTag(o, tag);
     },
-    $signature: 55
+    $signature: 61
   };
   A.initHooks_closure1.prototype = {
     call$1(tag) {
       return this.prototypeForTag(A._asString(tag));
     },
-    $signature: 48
+    $signature: 39
   };
   A._Record.prototype = {
     get$runtimeType(_) {
@@ -11371,7 +11312,7 @@
       t2 = this.span;
       t1.firstChild ? t1.removeChild(t2) : t1.appendChild(t2);
     },
-    $signature: 59
+    $signature: 64
   };
   A._AsyncRun__scheduleImmediateJsOverride_internalCallback.prototype = {
     call$0() {
@@ -11435,13 +11376,13 @@
     call$2(error, stackTrace) {
       this.bodyFunction.call$2(1, new A.ExceptionAndStackTrace(error, type$.StackTrace._as(stackTrace)));
     },
-    $signature: 68
+    $signature: 65
   };
   A._wrapJsFunctionForAsync_closure.prototype = {
     call$2(errorCode, result) {
       this.$protected(A._asInt(errorCode), result);
     },
-    $signature: 75
+    $signature: 73
   };
   A._SyncStarIterator.prototype = {
     get$current(_) {
@@ -11857,7 +11798,7 @@
     call$2(error, stackTrace) {
       this.$this._completeError$2(type$.Object._as(error), type$.StackTrace._as(stackTrace));
     },
-    $signature: 30
+    $signature: 87
   };
   A._Future__chainForeignFuture_closure1.prototype = {
     call$0() {
@@ -11928,7 +11869,7 @@
     call$1(_) {
       return this.originalSource;
     },
-    $signature: 34
+    $signature: 30
   };
   A._Future__propagateToListeners_handleValueCallback.prototype = {
     call$0() {
@@ -12397,7 +12338,7 @@
     call$2(k, v) {
       this.result.$indexSet(0, this.K._as(k), this.V._as(v));
     },
-    $signature: 38
+    $signature: 36
   };
   A.ListBase.prototype = {
     get$iterator(receiver) {
@@ -12493,10 +12434,6 @@
     $isList: 1
   };
   A.MapBase.prototype = {
-    cast$2$0(receiver, RK, RV) {
-      var t1 = A.instanceType(receiver);
-      return A.Map_castFrom(receiver, t1._eval$1("MapBase.K"), t1._eval$1("MapBase.V"), RK, RV);
-    },
     forEach$1(receiver, action) {
       var t2, key, t3,
         t1 = A.instanceType(receiver);
@@ -12571,31 +12508,24 @@
   A.UnmodifiableMapBase.prototype = {};
   A._UnmodifiableMapMixin.prototype = {};
   A.MapView.prototype = {
-    cast$2$0(_, RK, RV) {
-      var t1 = this._collection$_map;
-      return t1.cast$2$0(t1, RK, RV);
-    },
     $index(_, key) {
       return this._collection$_map.$index(0, key);
     },
     forEach$1(_, action) {
-      this._collection$_map.forEach$1(0, A._instanceType(this)._eval$1("~(1,2)")._as(action));
+      this._collection$_map.forEach$1(0, this.$ti._eval$1("~(1,2)")._as(action));
     },
     get$isEmpty(_) {
-      var t1 = this._collection$_map;
-      return t1.get$isEmpty(t1);
+      return this._collection$_map.__js_helper$_length === 0;
     },
     get$length(_) {
-      var t1 = this._collection$_map;
-      return t1.get$length(t1);
+      return this._collection$_map.__js_helper$_length;
     },
     get$keys(_) {
       var t1 = this._collection$_map;
-      return t1.get$keys(t1);
+      return new A.LinkedHashMapKeyIterable(t1, A._instanceType(t1)._eval$1("LinkedHashMapKeyIterable<1>"));
     },
     toString$0(_) {
-      var t1 = this._collection$_map;
-      return t1.toString$0(t1);
+      return A.MapBase_mapToString(this._collection$_map);
     },
     get$entries(_) {
       var t1 = this._collection$_map;
@@ -12603,7 +12533,7 @@
     },
     map$2$1(_, transform, K2, V2) {
       var t1 = this._collection$_map;
-      return t1.map$2$1(t1, A._instanceType(this)._bind$1(K2)._bind$1(V2)._eval$1("MapEntry<1,2>(3,4)")._as(transform), K2, V2);
+      return t1.map$2$1(t1, this.$ti._bind$1(K2)._bind$1(V2)._eval$1("MapEntry<1,2>(3,4)")._as(transform), K2, V2);
     },
     map$1(_, transform) {
       var t1 = type$.dynamic;
@@ -12611,12 +12541,7 @@
     },
     $isMap: 1
   };
-  A.UnmodifiableMapView.prototype = {
-    cast$2$0(_, RK, RV) {
-      var t1 = this._collection$_map;
-      return new A.UnmodifiableMapView(t1.cast$2$0(t1, RK, RV), RK._eval$1("@<0>")._bind$1(RV)._eval$1("UnmodifiableMapView<1,2>"));
-    }
-  };
+  A.UnmodifiableMapView.prototype = {};
   A.SetBase.prototype = {
     get$isEmpty(_) {
       return this.get$length(this) === 0;
@@ -13696,7 +13621,7 @@
       hash = hash + ((hash & 524287) << 10) & 536870911;
       return hash ^ hash >>> 6;
     },
-    $signature: 58
+    $signature: 54
   };
   A._BigIntImpl_hashCode_finish.prototype = {
     call$1(hash) {
@@ -13720,7 +13645,7 @@
       t1._contents += t3;
       t2.comma = ", ";
     },
-    $signature: 60
+    $signature: 66
   };
   A.DateTime.prototype = {
     _addMicroseconds$1(durationMicroseconds) {
@@ -14185,7 +14110,7 @@
   };
   A._StringStackTrace.prototype = {
     toString$0(_) {
-      return this._stackTrace;
+      return this._core$_stackTrace;
     },
     $isStackTrace: 1
   };
@@ -14867,7 +14792,7 @@
     call$2(k, v) {
       return B.JSArray_methods.add$1(this.keys, k);
     },
-    $signature: 67
+    $signature: 72
   };
   A.StyleSheet.prototype = {$isStyleSheet: 1};
   A.TextTrack.prototype = {$isTextTrack: 1};
@@ -19038,7 +18963,7 @@
     call$1(e) {
       return A.objectsEquals(this.element, e);
     },
-    $signature: 74
+    $signature: 80
   };
   A._combine_closure.prototype = {
     call$2(a, b) {
@@ -19054,7 +18979,7 @@
       t3.toString;
       t1.hash = (t2 ^ A._combine(t2, [key, J.$index$asx(type$.Map_dynamic_dynamic._as(t3), key)])) >>> 0;
     },
-    $signature: 10
+    $signature: 11
   };
   A._combine_closure1.prototype = {
     call$2(a, b) {
@@ -19066,7 +18991,7 @@
     call$1(prop) {
       return J.toString$0$(prop);
     },
-    $signature: 76
+    $signature: 82
   };
   A.Excel.prototype = {
     get$_absSharedStringsTarget() {
@@ -19709,7 +19634,7 @@
       worksheetNode.toString;
       A.filterElements(new A.XmlDescendantsIterable(worksheetNode), "mergeCell", null).forEach$1(0, new A.Parser__parseMergedCells__closure(t1, t2, spanList, this.spannedCells, sheetName));
     },
-    $signature: 96
+    $signature: 102
   };
   A.Parser__parseMergedCells__closure.prototype = {
     call$1(element) {
@@ -20062,7 +19987,7 @@
         t1._contents += t2;
       }
     },
-    $signature: 102
+    $signature: 108
   };
   A.Parser__getAvailableRid_closure.prototype = {
     call$2(a, b) {
@@ -20325,7 +20250,7 @@
     call$1(e) {
       return type$.BorderStyle._as(e)._enumToString$0().toLowerCase() === "borderstyle." + this.name.toLowerCase();
     },
-    $signature: 28
+    $signature: 34
   };
   A.CellIndex.prototype = {
     get$props() {
@@ -20505,6 +20430,20 @@
     Sheet$_$12$columnAutoFitVal$columnWidthsVal$headerFooter$isRTLVal$maxColumnsVal$maxRowsVal$rowHeightsVal$sh$spanI_$spanL_(_excel, _sheet, columnAutoFitVal, columnWidthsVal, headerFooter, isRTLVal, maxColumnsVal, maxRowsVal, rowHeightsVal, sh, spanI_, spanL_) {
       this._countRowsAndColumns$0();
     },
+    get$rows(_) {
+      var t1, _list, t2, rowIndex, _this = this,
+        _data = A._setArrayType([], type$.JSArray_List_nullable_Data);
+      if (_this._sheetData.__js_helper$_length === 0)
+        return _data;
+      t1 = _this._maxRows;
+      if (t1 > 0 && _this._maxColumns > 0) {
+        _list = J.JSArray_JSArray$allocateGrowable(t1, type$.List_nullable_Data);
+        for (t2 = type$.nullable_Data, rowIndex = 0; rowIndex < t1; ++rowIndex)
+          _list[rowIndex] = A.List_List$generate(_this._maxColumns, new A.Sheet_rows_closure(_this, rowIndex), t2);
+        _data = _list;
+      }
+      return _data;
+    },
     _countRowsAndColumns$0() {
       var _this = this, t1 = {},
         maximumRowIndex = t1.maximumColumnIndex = -1,
@@ -20589,6 +20528,16 @@
       return new A._Record_2(newRowIndex, newColumnIndex);
     }
   };
+  A.Sheet_rows_closure.prototype = {
+    call$1(columnIndex) {
+      var t1 = this.$this,
+        t2 = this.rowIndex;
+      if (t1._sheetData.$index(0, t2) != null && t1._sheetData.$index(0, t2).$index(0, columnIndex) != null)
+        return t1._sheetData.$index(0, t2).$index(0, columnIndex);
+      return null;
+    },
+    $signature: 35
+  };
   A.Sheet__countRowsAndColumns_closure.prototype = {
     call$1(rowKey) {
       var t1, t2, keys;
@@ -20613,14 +20562,14 @@
           this._box_0.maximumColumnIndex = B.JSArray_methods.get$last(keys);
       }
     },
-    $signature: 35
+    $signature: 28
   };
   A._hexTableReverse_closure.prototype = {
     call$2(k, v) {
       A._asInt(k);
       return new A.MapEntry(A._asString(v), k, type$.MapEntry_String_int);
     },
-    $signature: 36
+    $signature: 37
   };
   A.ExcelColor.prototype = {
     get$colorHex() {
@@ -20650,7 +20599,7 @@
       type$.ExcelColor._as(v);
       return new A.MapEntry(v.get$colorHex(), v, type$.MapEntry_String_ExcelColor);
     },
-    $signature: 37
+    $signature: 38
   };
   A.ColorType.prototype = {
     _enumToString$0() {
@@ -20695,27 +20644,121 @@
     },
     $signature: 22
   };
-  A.ExcelService.prototype = {
-    decodeExcelFromBytes$1(bytes) {
-      return this.decodeExcelFromBytes$body$ExcelService(type$.List_int._as(bytes));
+  A.ExcelFileRepository.prototype = {
+    init$1(bytes) {
+      return this.init$body$ExcelFileRepository(type$.List_int._as(bytes));
     },
-    decodeExcelFromBytes$body$ExcelService(bytes) {
+    init$body$ExcelFileRepository(bytes) {
       var $async$goto = 0,
-        $async$completer = A._makeAsyncAwaitCompleter(type$.Map_String_Sheet),
-        $async$returnValue, t1, t2, t3;
-      var $async$decodeExcelFromBytes$1 = A._wrapJsFunctionForAsync(function($async$errorCode, $async$result) {
+        $async$completer = A._makeAsyncAwaitCompleter(type$.void),
+        $async$self = this, t1;
+      var $async$init$1 = A._wrapJsFunctionForAsync(function($async$errorCode, $async$result) {
         if ($async$errorCode === 1)
           return A._asyncRethrow($async$result, $async$completer);
         while (true)
           switch ($async$goto) {
             case 0:
               // Function start
-              A.print("decoding bytes");
-              t1 = A.Excel_Excel$decodeBytes(bytes)._sheetMap;
-              t2 = type$.String;
-              t3 = type$.Sheet;
-              A.print("Worker Number of sheets:  " + A.LinkedHashMap_LinkedHashMap$from(t1, t2, t3).__js_helper$_length + " ");
-              $async$returnValue = A.LinkedHashMap_LinkedHashMap$from(t1, t2, t3);
+              A.print("Worker init");
+              t1 = A.Excel_Excel$decodeBytes(bytes);
+              $async$self.excel = t1;
+              A.print("Worker Number of sheets:  " + A.LinkedHashMap_LinkedHashMap$from(t1._sheetMap, type$.String, type$.Sheet).__js_helper$_length + " ");
+              // implicit return
+              return A._asyncReturn(null, $async$completer);
+          }
+      });
+      return A._asyncStartSync($async$init$1, $async$completer);
+    },
+    getColumnCount$0() {
+      var sheet,
+        t1 = type$.String,
+        t2 = type$.Sheet,
+        t3 = A.LinkedHashMap_LinkedHashMap$from(this.excel._sheetMap, t1, t2);
+      t2 = A.LinkedHashMap_LinkedHashMap$from(this.excel._sheetMap, t1, t2);
+      sheet = t3.$index(0, new A.LinkedHashMapKeyIterable(t2, A._instanceType(t2)._eval$1("LinkedHashMapKeyIterable<1>")).get$first(0));
+      if (sheet == null || sheet.get$rows(0).length === 0)
+        return 0;
+      return sheet._maxColumns;
+    },
+    getData$0(_) {
+      var sheet,
+        t1 = type$.String,
+        t2 = type$.Sheet,
+        t3 = A.LinkedHashMap_LinkedHashMap$from(this.excel._sheetMap, t1, t2);
+      t2 = A.LinkedHashMap_LinkedHashMap$from(this.excel._sheetMap, t1, t2);
+      sheet = t3.$index(0, new A.LinkedHashMapKeyIterable(t2, A._instanceType(t2)._eval$1("LinkedHashMapKeyIterable<1>")).get$first(0));
+      if (sheet == null)
+        return A._setArrayType([], type$.JSArray_List_nullable_CellValue);
+      t1 = sheet.get$rows(0);
+      t2 = A._arrayInstanceType(t1);
+      t3 = t2._eval$1("MappedListIterable<1,List<CellValue?>>");
+      return A.List_List$of(new A.MappedListIterable(t1, t2._eval$1("List<CellValue?>(1)")._as(new A.ExcelFileRepository_getData_closure()), t3), true, t3._eval$1("ListIterable.E"));
+    }
+  };
+  A.ExcelFileRepository_getData_closure.prototype = {
+    call$1(row) {
+      var t1 = J.map$1$1$ax(type$.List_nullable_Data._as(row), new A.ExcelFileRepository_getData__closure(), type$.nullable_CellValue);
+      return A.List_List$of(t1, true, t1.$ti._eval$1("ListIterable.E"));
+    },
+    $signature: 40
+  };
+  A.ExcelFileRepository_getData__closure.prototype = {
+    call$1(cell) {
+      type$.nullable_Data._as(cell);
+      return cell == null ? null : cell._excel$_value;
+    },
+    $signature: 41
+  };
+  A._$ExcelFileRepositoryWorkerService.prototype = {
+    get$operations() {
+      var t1, t2, result, _this = this,
+        value = _this.___$ExcelFileRepositoryWorkerService_operations_FI;
+      if (value === $) {
+        t1 = type$.int;
+        t2 = type$.dynamic_Function_List_dynamic;
+        result = A.ConstantMap_ConstantMap$from(A.LinkedHashMap_LinkedHashMap$_literal([1, new A._$ExcelFileRepositoryWorkerService_operations_closure(_this), 2, new A._$ExcelFileRepositoryWorkerService_operations_closure0(_this), 3, new A._$ExcelFileRepositoryWorkerService_operations_closure1(_this), 4, new A._$ExcelFileRepositoryWorkerService_operations_closure2(_this)], t1, t2), t1, t2);
+        _this.___$ExcelFileRepositoryWorkerService_operations_FI !== $ && A.throwLateFieldADI("operations");
+        _this.set$___$ExcelFileRepositoryWorkerService_operations_FI(result);
+        value = result;
+      }
+      return value;
+    },
+    set$___$ExcelFileRepositoryWorkerService_operations_FI(___$ExcelFileRepositoryWorkerService_operations_FI) {
+      this.___$ExcelFileRepositoryWorkerService_operations_FI = type$.Map_of_int_and_dynamic_Function_List_dynamic._as(___$ExcelFileRepositoryWorkerService_operations_FI);
+    },
+    $isWorkerService: 1
+  };
+  A._$ExcelFileRepositoryWorkerService_operations_closure.prototype = {
+    call$1($$) {
+      type$.List_dynamic._as($$);
+      return this.$this.getColumnCount$0();
+    },
+    $signature: 42
+  };
+  A._$ExcelFileRepositoryWorkerService_operations_closure0.prototype = {
+    call$1($$) {
+      return this.$call$body$_$ExcelFileRepositoryWorkerService_operations_closure(type$.List_dynamic._as($$));
+    },
+    $call$body$_$ExcelFileRepositoryWorkerService_operations_closure($$) {
+      var $async$goto = 0,
+        $async$completer = A._makeAsyncAwaitCompleter(type$.List_List_dynamic),
+        $async$returnValue, $async$self = this, t1, t2, $async$temp1;
+      var $async$call$1 = A._wrapJsFunctionForAsync(function($async$errorCode, $async$result) {
+        if ($async$errorCode === 1)
+          return A._asyncRethrow($async$result, $async$completer);
+        while (true)
+          switch ($async$goto) {
+            case 0:
+              // Function start
+              t1 = A._$X_$impl();
+              t2 = type$.List_List_nullable_CellValue;
+              t2 = A._Future$value(t2._as($async$self.$this.getData$0(0)), t2);
+              $async$temp1 = t1;
+              $async$goto = 3;
+              return A._asyncAwait(t2, $async$call$1);
+            case 3:
+              // returning from await.
+              $async$returnValue = $async$temp1.$$sr1$1($async$result);
               // goto return
               $async$goto = 1;
               break;
@@ -20724,78 +20767,111 @@
               return A._asyncReturn($async$returnValue, $async$completer);
           }
       });
-      return A._asyncStartSync($async$decodeExcelFromBytes$1, $async$completer);
-    }
+      return A._asyncStartSync($async$call$1, $async$completer);
+    },
+    $signature: 43
   };
-  A._$ExcelServiceWorkerService.prototype = {
-    get$operations() {
-      var t1, t2, result, _this = this,
-        value = _this.___$ExcelServiceWorkerService_operations_FI;
+  A._$ExcelFileRepositoryWorkerService_operations_closure1.prototype = {
+    call$1($$) {
+      var t1;
+      type$.List_dynamic._as($$);
+      t1 = A.LinkedHashMap_LinkedHashMap$from(this.$this.excel._sheetMap, type$.String, type$.Sheet);
+      return new A.LinkedHashMapKeyIterable(t1, A._instanceType(t1)._eval$1("LinkedHashMapKeyIterable<1>")).get$first(0);
+    },
+    $signature: 44
+  };
+  A._$ExcelFileRepositoryWorkerService_operations_closure2.prototype = {
+    call$1($$) {
+      var t1 = type$.List_dynamic;
+      t1._as($$);
+      return this.$this.init$1(A._$X_$impl().$$dsr3$1(J.$index$asx(t1._as(J.$index$asx($$, 3)), 0)));
+    },
+    $signature: 45
+  };
+  A._$X.prototype = {
+    get$$$sr1() {
+      var t1, result, _this = this,
+        value = _this.___$X_$sr1_FI;
       if (value === $) {
-        t1 = type$.int;
-        t2 = type$.dynamic_Function_List_dynamic;
-        result = A.ConstantMap_ConstantMap$from(A.LinkedHashMap_LinkedHashMap$_literal([1, new A._$ExcelServiceWorkerService_operations_closure(_this)], t1, t2), t1, t2);
-        _this.___$ExcelServiceWorkerService_operations_FI !== $ && A.throwLateFieldADI("operations");
-        _this.set$___$ExcelServiceWorkerService_operations_FI(result);
+        t1 = $.$get$Squadron__converter();
+        value = _this.___$X_$sr0_FI;
+        if (value === $) {
+          result = t1.list$1$0(0, type$.dynamic);
+          _this.___$X_$sr0_FI !== $ && A.throwLateFieldADI("$sr0");
+          _this.set$___$X_$sr0_FI(result);
+          value = result;
+        }
+        result = t1.list$1$1(0, value, type$.List_dynamic);
+        _this.___$X_$sr1_FI !== $ && A.throwLateFieldADI("$sr1");
+        _this.set$___$X_$sr1_FI(result);
         value = result;
       }
       return value;
     },
-    set$___$ExcelServiceWorkerService_operations_FI(___$ExcelServiceWorkerService_operations_FI) {
-      this.___$ExcelServiceWorkerService_operations_FI = type$.Map_of_int_and_dynamic_Function_List_dynamic._as(___$ExcelServiceWorkerService_operations_FI);
-    },
-    $isWorkerService: 1
-  };
-  A._$ExcelServiceWorkerService_operations_closure.prototype = {
-    call$1($$) {
-      var t2, value, t3, result,
-        t1 = type$.List_dynamic;
-      t1._as($$);
-      t1 = this.$this.decodeExcelFromBytes$1(A._$X_$impl().$$dsr1$1(J.$index$asx(t1._as(J.$index$asx($$, 3)), 0)));
-      t2 = A._$X_$impl();
-      value = t2.___$X_$sr2_FI;
-      if (value === $) {
-        t3 = type$.dynamic;
-        result = $.$get$Squadron__converter().map$2$0(0, t3, t3);
-        t2.___$X_$sr2_FI !== $ && A.throwLateFieldADI("$sr2");
-        t2.set$___$X_$sr2_FI(result);
-        value = result;
-      }
-      return t1.then$1$1(value, type$.dynamic);
-    },
-    $signature: 39
-  };
-  A._$X.prototype = {
-    get$$$dsr1() {
+    get$$$dsr3() {
       var t1, result, _this = this,
-        value = _this.___$X_$dsr1_FI;
+        value = _this.___$X_$dsr3_FI;
       if (value === $) {
         t1 = $.$get$Squadron__converter();
-        value = _this.___$X_$dsr0_FI;
+        value = _this.___$X_$dsr2_FI;
         if (value === $) {
           result = t1.value$1$0(0, type$.int);
-          _this.___$X_$dsr0_FI !== $ && A.throwLateFieldADI("$dsr0");
-          _this.set$___$X_$dsr0_FI(result);
+          _this.___$X_$dsr2_FI !== $ && A.throwLateFieldADI("$dsr2");
+          _this.set$___$X_$dsr2_FI(result);
           value = result;
         }
         result = t1.list$1$1(0, value, type$.int);
-        _this.___$X_$dsr1_FI !== $ && A.throwLateFieldADI("$dsr1");
-        _this.set$___$X_$dsr1_FI(result);
+        _this.___$X_$dsr3_FI !== $ && A.throwLateFieldADI("$dsr3");
+        _this.set$___$X_$dsr3_FI(result);
         value = result;
       }
       return value;
     },
-    set$___$X_$dsr0_FI(___$X_$dsr0_FI) {
-      this.___$X_$dsr0_FI = type$.int_Function_dynamic._as(___$X_$dsr0_FI);
+    get$$$dsr5() {
+      var t1, result, _this = this,
+        value = _this.___$X_$dsr5_FI;
+      if (value === $) {
+        t1 = $.$get$Squadron__converter();
+        value = _this.___$X_$dsr4_FI;
+        if (value === $) {
+          result = t1.value$1$0(0, type$.Excel);
+          _this.___$X_$dsr4_FI !== $ && A.throwLateFieldADI("$dsr4");
+          _this.set$___$X_$dsr4_FI(result);
+          value = result;
+        }
+        result = t1.nullable$1$1(value, type$.Excel);
+        _this.___$X_$dsr5_FI !== $ && A.throwLateFieldADI("$dsr5");
+        _this.set$___$X_$dsr5_FI(result);
+        value = result;
+      }
+      return value;
     },
-    set$___$X_$dsr1_FI(___$X_$dsr1_FI) {
-      this.___$X_$dsr1_FI = type$.List_int_Function_dynamic._as(___$X_$dsr1_FI);
+    set$___$X_$sr0_FI(___$X_$sr0_FI) {
+      this.___$X_$sr0_FI = type$.List_dynamic_Function_dynamic._as(___$X_$sr0_FI);
     },
-    set$___$X_$sr2_FI(___$X_$sr2_FI) {
-      this.___$X_$sr2_FI = type$.Map_dynamic_dynamic_Function_dynamic._as(___$X_$sr2_FI);
+    set$___$X_$sr1_FI(___$X_$sr1_FI) {
+      this.___$X_$sr1_FI = type$.List_List_dynamic_Function_dynamic._as(___$X_$sr1_FI);
     },
-    $$dsr1$1(arg0) {
-      return this.get$$$dsr1().call$1(arg0);
+    set$___$X_$dsr2_FI(___$X_$dsr2_FI) {
+      this.___$X_$dsr2_FI = type$.int_Function_dynamic._as(___$X_$dsr2_FI);
+    },
+    set$___$X_$dsr3_FI(___$X_$dsr3_FI) {
+      this.___$X_$dsr3_FI = type$.List_int_Function_dynamic._as(___$X_$dsr3_FI);
+    },
+    set$___$X_$dsr4_FI(___$X_$dsr4_FI) {
+      this.___$X_$dsr4_FI = type$.Excel_Function_dynamic._as(___$X_$dsr4_FI);
+    },
+    set$___$X_$dsr5_FI(___$X_$dsr5_FI) {
+      this.___$X_$dsr5_FI = type$.nullable_Excel_Function_dynamic._as(___$X_$dsr5_FI);
+    },
+    $$sr1$1(arg0) {
+      return this.get$$$sr1().call$1(arg0);
+    },
+    $$dsr3$1(arg0) {
+      return this.get$$$dsr3().call$1(arg0);
+    },
+    $$dsr5$1(arg0) {
+      return this.get$$$dsr5().call$1(arg0);
     }
   };
   A._$X_$impl_closure.prototype = {
@@ -21148,7 +21224,7 @@
       t2 = second.start;
       return t1 !== t2 ? t1 - t2 : first.stop - second.stop;
     },
-    $signature: 40
+    $signature: 46
   };
   A.optimizedRanges_closure0.prototype = {
     call$2(current, range) {
@@ -21156,7 +21232,7 @@
       type$.RangeCharPredicate._as(range);
       return current + (range.stop - range.start + 1);
     },
-    $signature: 41
+    $signature: 47
   };
   A._single_closure.prototype = {
     call$1(element) {
@@ -21165,7 +21241,7 @@
         return A.ioore(element, 0);
       return new A.RangeCharPredicate(element.charCodeAt(0), element.charCodeAt(0));
     },
-    $signature: 42
+    $signature: 48
   };
   A._range_closure.prototype = {
     call$3(start, _, $stop) {
@@ -21178,7 +21254,7 @@
         return A.ioore($stop, 0);
       return new A.RangeCharPredicate(start.charCodeAt(0), $stop.charCodeAt(0));
     },
-    $signature: 43
+    $signature: 49
   };
   A._pattern_closure.prototype = {
     call$2(negation, sequence) {
@@ -21191,7 +21267,7 @@
         t1 = sequence instanceof A.ConstantCharPredicate ? new A.ConstantCharPredicate(!sequence.constant) : new A.NotCharacterPredicate(sequence);
       return t1;
     },
-    $signature: 44
+    $signature: 50
   };
   A.CharacterPredicate.prototype = {};
   A.RangeCharPredicate.prototype = {
@@ -22055,7 +22131,7 @@
       t2._as(t1.port2).close();
       t2._as(self.self).close();
     },
-    $signature: 45
+    $signature: 51
   };
   A.bootstrap_closure.prototype = {
     call$1(e) {
@@ -22069,7 +22145,7 @@
       t4.toString;
       t3.connect$3(A.WorkerRequestExt_from(t4), t1._as(t2.port2), this.initializer);
     },
-    $signature: 46
+    $signature: 52
   };
   A.$jsify_squadronJsify.prototype = {
     call$1(obj) {
@@ -22240,13 +22316,13 @@
     call$0() {
       return "Failed to post response " + A.S(this.res) + ": " + A.S(this.ex);
     },
-    $signature: 11
+    $signature: 10
   };
   A._WebWorkerChannel__inspectAndPostResponse_closure.prototype = {
     call$0() {
       return "Failed to post response " + A.S(this.res) + ": " + A.S(this.ex);
     },
-    $signature: 11
+    $signature: 10
   };
   A.JsWorkerRunnerExt_get_handle_closure.prototype = {
     call$1($event) {
@@ -22254,7 +22330,7 @@
       t1.toString;
       return this._this.processRequest$1(A.WorkerRequestExt_from(t1));
     },
-    $signature: 49
+    $signature: 55
   };
   A.InternalLogger.prototype = {};
   A._NoLogOutput.prototype = {
@@ -22605,7 +22681,7 @@
     call$1($event) {
       return this.logger.call$1(type$.OutputEvent._as($event).origin);
     },
-    $signature: 50
+    $signature: 56
   };
   A.WorkerRunner_connect_closure0.prototype = {
     call$1(k) {
@@ -22617,14 +22693,14 @@
     call$0() {
       return "Connection failed: " + A.S(this.ex);
     },
-    $signature: 11
+    $signature: 10
   };
   A.WorkerRunner__getTokenRef_closure.prototype = {
     call$0() {
       var t1 = this.token;
       return new A.CancelationTokenReference(t1.get$id(t1), new A._AsyncCompleter(new A._Future($.Zone__current, type$._Future_SquadronCanceledException), type$._AsyncCompleter_SquadronCanceledException), true);
     },
-    $signature: 51
+    $signature: 57
   };
   A.CastConverter.prototype = {
     value$1$0(_, $T) {
@@ -22632,17 +22708,26 @@
     }
   };
   A.Converter0.prototype = {
-    list$1$1(_, cast, $T) {
+    nullable$1$1(cast, $T) {
       $T._eval$1("0(@)?")._as(cast);
-      return J.$eq$(cast, A.instantiate1(A.converter_Converter_identity$closure(), $T)) ? new A.Converter_list_closure($T) : new A.Converter_list_closure0(cast, $T);
+      return J.$eq$(cast, A.instantiate1(A.converter_Converter_identity$closure(), $T)) ? this.value$1$0(0, $T._eval$1("0?")) : new A.Converter_nullable_closure(cast, $T);
     },
-    map$2$0(_, $K, $V) {
-      var kop = this.value$1$0(0, $K),
-        vop = this.value$1$0(0, $V);
-      if (J.$eq$(kop, A.instantiate1(A.converter_Converter_identity$closure(), $K)) && J.$eq$(vop, A.instantiate1(A.converter_Converter_identity$closure(), $V)))
-        return new A.Converter_map_closure($K, $V);
-      else
-        return new A.Converter_map_closure0(kop, vop, $K, $V);
+    list$1$1(_, cast, $T) {
+      var op;
+      $T._eval$1("0(@)?")._as(cast);
+      op = cast == null ? this.value$1$0(0, $T) : cast;
+      return J.$eq$(op, A.instantiate1(A.converter_Converter_identity$closure(), $T)) ? new A.Converter_list_closure($T) : new A.Converter_list_closure0(op, $T);
+    },
+    list$1$0(_, $T) {
+      return this.list$1$1(0, null, $T);
+    }
+  };
+  A.Converter_nullable_closure.prototype = {
+    call$1($$) {
+      return $$ == null ? null : this.op.call$1($$);
+    },
+    $signature() {
+      return this.T._eval$1("0?(@)");
     }
   };
   A.Converter_list_closure.prototype = {
@@ -22662,34 +22747,6 @@
       return this.T._eval$1("List<0>(@)");
     }
   };
-  A.Converter_map_closure.prototype = {
-    call$1(x) {
-      return J.cast$2$0$ax(type$.Map_dynamic_dynamic._as(x), this.K, this.V);
-    },
-    $signature() {
-      return this.K._eval$1("@<0>")._bind$1(this.V)._eval$1("Map<1,2>(@)");
-    }
-  };
-  A.Converter_map_closure0.prototype = {
-    call$1(x) {
-      var _this = this,
-        t1 = _this.K,
-        t2 = _this.V;
-      return J.map$2$1$ax(type$.Map_dynamic_dynamic._as(x), new A.Converter_map__closure(_this.kop, _this.vop, t1, t2), t1, t2);
-    },
-    $signature() {
-      return this.K._eval$1("@<0>")._bind$1(this.V)._eval$1("Map<1,2>(@)");
-    }
-  };
-  A.Converter_map__closure.prototype = {
-    call$2(k, v) {
-      var _this = this;
-      return new A.MapEntry(_this.kop.call$1(k), _this.vop.call$1(v), _this.K._eval$1("@<0>")._bind$1(_this.V)._eval$1("MapEntry<1,2>"));
-    },
-    $signature() {
-      return this.K._eval$1("@<0>")._bind$1(this.V)._eval$1("MapEntry<1,2>(@,@)");
-    }
-  };
   A.SquadronCanceledException.prototype = {
     serialize$0() {
       var _this = this,
@@ -22705,7 +22762,7 @@
       type$.CanceledException._as(e);
       return A.SquadronCanceledException_SquadronCanceledException$from(this.tokenId, e, e.get$stackTrace());
     },
-    $signature: 52
+    $signature: 58
   };
   A.SquadronCanceledExceptions.prototype = {
     get$message(_) {
@@ -22731,17 +22788,17 @@
       type$.SquadronCanceledException._as(e);
       return e.get$message(e);
     },
-    $signature: 53
+    $signature: 59
   };
   A.SquadronCanceledExceptions_serialize_closure.prototype = {
     call$1(e) {
       return type$.SquadronCanceledException._as(e).serialize$0();
     },
-    $signature: 54
+    $signature: 60
   };
   A.SquadronError.prototype = {
     serialize$0() {
-      var t1 = this._squadron_exception$_stackTrace;
+      var t1 = this._stackTrace;
       t1 = t1 == null ? null : t1.toString$0(0);
       return A.List_List$unmodifiable(["$!", this.message, t1, this._squadron_error$_command], type$.dynamic);
     }
@@ -22749,22 +22806,22 @@
   A.SquadronException.prototype = {
     SquadronException$init$2(message, _stackTrace) {
       var st, exception;
-      if (this._squadron_exception$_stackTrace == null)
+      if (this._stackTrace == null)
         try {
-          this._squadron_exception$_stackTrace = A.StackTrace_current();
+          this._stackTrace = A.StackTrace_current();
         } catch (exception) {
           st = A.getTraceFromException(exception);
-          this.set$_squadron_exception$_stackTrace(st);
+          this.set$_stackTrace(st);
         }
     },
     get$stackTrace() {
-      return this._squadron_exception$_stackTrace;
+      return this._stackTrace;
     },
     toString$0(_) {
       return B.C_JsonCodec.encode$2$toEncodable(this.serialize$0(), null);
     },
-    set$_squadron_exception$_stackTrace(_stackTrace) {
-      this._squadron_exception$_stackTrace = type$.nullable_StackTrace._as(_stackTrace);
+    set$_stackTrace(_stackTrace) {
+      this._stackTrace = type$.nullable_StackTrace._as(_stackTrace);
     },
     get$message(receiver) {
       return this.message;
@@ -22773,7 +22830,7 @@
   A.SquadronTimeoutException.prototype = {
     serialize$0() {
       var t2, _this = this,
-        t1 = _this._squadron_exception$_stackTrace;
+        t1 = _this._stackTrace;
       t1 = t1 == null ? null : t1.toString$0(0);
       t2 = _this.duration;
       t2 = t2 == null ? null : t2._duration;
@@ -22782,7 +22839,7 @@
   };
   A.WorkerException.prototype = {
     serialize$0() {
-      var t1 = this._squadron_exception$_stackTrace;
+      var t1 = this._stackTrace;
       t1 = t1 == null ? null : t1.toString$0(0);
       return A.List_List$unmodifiable(["$#", this.message, t1, this._command], type$.dynamic);
     }
@@ -23029,14 +23086,14 @@
       type$.XmlNode._as(node);
       return node instanceof A.XmlText || node instanceof A.XmlCDATA;
     },
-    $signature: 56
+    $signature: 62
   };
   A.XmlStringExtension_get_innerText_closure0.prototype = {
     call$1(node) {
       type$.XmlNode._as(node);
       return node.get$value(node);
     },
-    $signature: 57
+    $signature: 63
   };
   A.XmlAttributesBase.prototype = {
     get$attributes(_) {
@@ -23898,7 +23955,7 @@
       type$.XmlEventAttribute._as(attribute);
       return A.XmlAttribute$(A.XmlName_XmlName$fromString(attribute.name), attribute.value, attribute.attributeType);
     },
-    $signature: 61
+    $signature: 67
   };
   A.__XmlNodeDecoderSink_Object_XmlEventVisitor.prototype = {};
   A.XmlEvent.prototype = {
@@ -24246,7 +24303,7 @@
       var _null = null;
       return new A.XmlRawTextEvent(A._asString(each), this.$this.entityMapping, _null, _null, _null, _null);
     },
-    $signature: 77
+    $signature: 83
   };
   A.XmlEventParser_startElement_closure.prototype = {
     call$5(_, nameToken, attributes, __, closeElement) {
@@ -24257,7 +24314,7 @@
       A._asString(__);
       return new A.XmlStartElementEvent(nameToken, attributes, A._asString(closeElement) === "/>", _null, _null, _null, _null);
     },
-    $signature: 78
+    $signature: 84
   };
   A.XmlEventParser_attribute_closure.prototype = {
     call$3(_, $name, attribute) {
@@ -24266,7 +24323,7 @@
       type$.Record_2_String_and_XmlAttributeType._as(attribute);
       return new A.XmlEventAttribute($name, this.$this.entityMapping.decode$1(0, attribute._0), attribute._1, null);
     },
-    $signature: 79
+    $signature: 85
   };
   A.XmlEventParser_attributeAssignment_closure.prototype = {
     call$4(_, __, ___, value) {
@@ -24275,7 +24332,7 @@
       A._asString(___);
       return type$.Record_2_String_and_XmlAttributeType._as(value);
     },
-    $signature: 80
+    $signature: 86
   };
   A.XmlEventParser_attributeValueDoubleQuote_closure.prototype = {
     call$3(_, value, __) {
@@ -24299,7 +24356,7 @@
     call$1(value) {
       return new A._Record_2(A._asString(value), B.XmlAttributeType_2x0);
     },
-    $signature: 82
+    $signature: 88
   };
   A.XmlEventParser_endElement_closure.prototype = {
     call$4(_, $name, __, ___) {
@@ -24310,7 +24367,7 @@
       A._asString(___);
       return new A.XmlEndElementEvent($name, _null, _null, _null, _null);
     },
-    $signature: 83
+    $signature: 89
   };
   A.XmlEventParser_comment_closure.prototype = {
     call$3(_, text, __) {
@@ -24320,7 +24377,7 @@
       A._asString(__);
       return new A.XmlCommentEvent(text, _null, _null, _null, _null);
     },
-    $signature: 84
+    $signature: 90
   };
   A.XmlEventParser_cdata_closure.prototype = {
     call$3(_, text, __) {
@@ -24330,7 +24387,7 @@
       A._asString(__);
       return new A.XmlCDATAEvent(text, _null, _null, _null, _null);
     },
-    $signature: 85
+    $signature: 91
   };
   A.XmlEventParser_declaration_closure.prototype = {
     call$4(_, attributes, __, ___) {
@@ -24341,14 +24398,14 @@
       A._asString(___);
       return new A.XmlDeclarationEvent(attributes, _null, _null, _null, _null);
     },
-    $signature: 86
+    $signature: 92
   };
   A.XmlEventParser_processing_closure.prototype = {
     call$2(_, text) {
       A._asString(_);
       return A._asString(text);
     },
-    $signature: 87
+    $signature: 93
   };
   A.XmlEventParser_processing_closure0.prototype = {
     call$4(_, target, text, __) {
@@ -24359,7 +24416,7 @@
       A._asString(__);
       return new A.XmlProcessingEvent(target, text, _null, _null, _null, _null);
     },
-    $signature: 88
+    $signature: 94
   };
   A.XmlEventParser_doctype_closure.prototype = {
     call$8(_, __, $name, externalId, ___, internalSubset, ____, _____) {
@@ -24374,7 +24431,7 @@
       A._asString(_____);
       return new A.XmlDoctypeEvent($name, externalId, internalSubset, _null, _null, _null, _null);
     },
-    $signature: 89
+    $signature: 95
   };
   A.XmlEventParser_doctypeExternalIdSystem_closure.prototype = {
     call$3(_, __, attribute) {
@@ -24383,7 +24440,7 @@
       type$.Record_2_String_and_XmlAttributeType._as(attribute);
       return new A.DtdExternalId(null, null, attribute._0, attribute._1);
     },
-    $signature: 90
+    $signature: 96
   };
   A.XmlEventParser_doctypeExternalIdPublic_closure.prototype = {
     call$5(_, __, publicAttribute, ___, systemAttribute) {
@@ -24396,7 +24453,7 @@
       t1._as(systemAttribute);
       return new A.DtdExternalId(publicAttribute._0, publicAttribute._1, systemAttribute._0, systemAttribute._1);
     },
-    $signature: 91
+    $signature: 97
   };
   A.XmlEventParser_doctypeIntSubset_closure.prototype = {
     call$3(_, contents, __) {
@@ -24405,13 +24462,13 @@
       A._asString(__);
       return contents;
     },
-    $signature: 92
+    $signature: 98
   };
   A.eventParserCache_closure.prototype = {
     call$1(entityMapping) {
       return A.resolve(new A.ReferenceParser(new A.XmlEventParser(type$.XmlEntityMapping._as(entityMapping)).get$event(), B.List_empty2, type$.ReferenceParser_XmlEvent), type$.XmlEvent);
     },
-    $signature: 93
+    $signature: 99
   };
   A.ConversionSink.prototype = {$isSink: 1};
   A.XmlEventAttribute.prototype = {
@@ -24477,45 +24534,45 @@
       _static = hunkHelpers.installStaticTearOff,
       _instance_0_u = hunkHelpers._instance_0u,
       _instance_0_i = hunkHelpers._instance_0i;
-    _static_2(J, "_interceptors_JSArray__compareAny$closure", "JSArray__compareAny", 95);
-    _instance_1_i(J.JSArray.prototype, "get$addAll", "addAll$1", 10);
+    _static_2(J, "_interceptors_JSArray__compareAny$closure", "JSArray__compareAny", 101);
+    _instance_1_i(J.JSArray.prototype, "get$addAll", "addAll$1", 11);
     _static_1(A, "async__AsyncRun__scheduleImmediateJsOverride$closure", "_AsyncRun__scheduleImmediateJsOverride", 14);
     _static_1(A, "async__AsyncRun__scheduleImmediateWithSetImmediate$closure", "_AsyncRun__scheduleImmediateWithSetImmediate", 14);
     _static_1(A, "async__AsyncRun__scheduleImmediateWithTimer$closure", "_AsyncRun__scheduleImmediateWithTimer", 14);
     _static_0(A, "async___startMicrotaskLoop$closure", "_startMicrotaskLoop", 1);
     _static_1(A, "convert___defaultToEncodable$closure", "_defaultToEncodable", 15);
-    _instance_1_i(A.StringBuffer.prototype, "get$write", "write$1", 10);
-    _static_2(A, "equatable_utils___combine$closure", "_combine", 97);
+    _instance_1_i(A.StringBuffer.prototype, "get$write", "write$1", 11);
+    _static_2(A, "equatable_utils___combine$closure", "_combine", 103);
     _static_1(A, "excel___letterOnly$closure", "_letterOnly", 19);
-    _static_1(A, "excel_service__$ExcelServiceInitializer$closure", "$ExcelServiceInitializer", 98);
-    _static_1(A, "optimize__optimizedRanges$closure", "optimizedRanges", 99);
+    _static_1(A, "excel_service__$ExcelFileRepositoryInitializer$closure", "$ExcelFileRepositoryInitializer", 104);
+    _static_1(A, "optimize__optimizedRanges$closure", "optimizedRanges", 105);
     var _;
     _instance_1_i(_ = A._WebWorkerChannel.prototype, "get$reply", "reply$1", 4);
     _instance_1_u(_, "get$inspectAndReply", "inspectAndReply$1", 4);
-    _instance_1_u(_, "get$log", "log$1", 47);
+    _instance_1_u(_, "get$log", "log$1", 53);
     _static(A, "converter_Converter_identity$closure", 1, null, ["call$1$1", "call$1"], ["Converter_identity", function(x) {
       return A.Converter_identity(x, type$.dynamic);
-    }], 100, 1);
-    _static_1(A, "squadron_canceled_exception__SquadronCanceledExceptionExt_deserialize$closure", "SquadronCanceledExceptionExt_deserialize", 101);
+    }], 106, 1);
+    _static_1(A, "squadron_canceled_exception__SquadronCanceledExceptionExt_deserialize$closure", "SquadronCanceledExceptionExt_deserialize", 107);
     _static_1(A, "default_mapping___textReplace$closure", "_textReplace", 8);
     _static_1(A, "default_mapping___singeQuoteAttributeReplace$closure", "_singeQuoteAttributeReplace", 8);
     _static_1(A, "default_mapping___doubleQuoteAttributeReplace$closure", "_doubleQuoteAttributeReplace", 8);
-    _instance_0_u(_ = A.XmlEventParser.prototype, "get$event", "event$0", 62);
-    _instance_0_u(_, "get$characterData", "characterData$0", 63);
-    _instance_0_u(_, "get$startElement", "startElement$0", 64);
-    _instance_0_i(_, "get$attributes", "attributes$0", 65);
-    _instance_0_u(_, "get$attribute", "attribute$0", 66);
+    _instance_0_u(_ = A.XmlEventParser.prototype, "get$event", "event$0", 68);
+    _instance_0_u(_, "get$characterData", "characterData$0", 69);
+    _instance_0_u(_, "get$startElement", "startElement$0", 70);
+    _instance_0_i(_, "get$attributes", "attributes$0", 71);
+    _instance_0_u(_, "get$attribute", "attribute$0", 109);
     _instance_0_u(_, "get$attributeAssignment", "attributeAssignment$0", 5);
     _instance_0_u(_, "get$attributeValue", "attributeValue$0", 5);
     _instance_0_u(_, "get$attributeValueDoubleQuote", "attributeValueDoubleQuote$0", 5);
     _instance_0_u(_, "get$attributeValueSingleQuote", "attributeValueSingleQuote$0", 5);
     _instance_0_u(_, "get$attributeValueNoQuote", "attributeValueNoQuote$0", 5);
-    _instance_0_i(_, "get$endElement", "endElement$0", 103);
-    _instance_0_u(_, "get$comment", "comment$0", 69);
-    _instance_0_u(_, "get$cdata", "cdata$0", 70);
-    _instance_0_u(_, "get$declaration", "declaration$0", 71);
-    _instance_0_u(_, "get$processing", "processing$0", 72);
-    _instance_0_u(_, "get$doctype", "doctype$0", 73);
+    _instance_0_i(_, "get$endElement", "endElement$0", 74);
+    _instance_0_u(_, "get$comment", "comment$0", 75);
+    _instance_0_u(_, "get$cdata", "cdata$0", 76);
+    _instance_0_u(_, "get$declaration", "declaration$0", 77);
+    _instance_0_u(_, "get$processing", "processing$0", 78);
+    _instance_0_u(_, "get$doctype", "doctype$0", 79);
     _instance_0_u(_, "get$doctypeExternalId", "doctypeExternalId$0", 13);
     _instance_0_u(_, "get$doctypeExternalIdSystem", "doctypeExternalIdSystem$0", 13);
     _instance_0_u(_, "get$doctypeExternalIdPublic", "doctypeExternalIdPublic$0", 13);
@@ -24530,7 +24587,7 @@
     _instance_0_u(_, "get$nameToken", "nameToken$0", 2);
     _instance_0_u(_, "get$nameStartChar", "nameStartChar$0", 2);
     _instance_0_u(_, "get$nameChar", "nameChar$0", 2);
-    _instance_1_u(A.XmlEventVisitor.prototype, "get$visit", "visit$1", 94);
+    _instance_1_u(A.XmlEventVisitor.prototype, "get$visit", "visit$1", 100);
     _static_1(A, "code___toFormattedChar$closure", "_toFormattedChar", 23);
     _static_2(A, "failure_joiner__selectFirst$closure", "selectFirst", 12);
     _static_2(A, "failure_joiner__selectLast$closure", "selectLast", 12);
@@ -24541,7 +24598,7 @@
       _inherit = hunkHelpers.inherit,
       _inheritMany = hunkHelpers.inheritMany;
     _inherit(A.Object, null);
-    _inheritMany(A.Object, [A.JS_CONST, J.Interceptor, J.ArrayIterator, A.Iterable, A.CastIterator, A.MapBase, A.Closure, A.Error, A.ListBase, A.SentinelValue, A.ListIterator, A.MappedIterator, A.WhereIterator, A.SkipIterator, A.EmptyIterator, A.WhereTypeIterator, A.FixedLengthListMixin, A.UnmodifiableListMixin, A.Symbol, A._Record, A.MapView, A.ConstantMap, A._KeysOrValuesOrElementsIterator, A.SetBase, A.JSInvocationMirror, A.TypeErrorDecoder, A.NullThrownFromJavaScriptException, A.ExceptionAndStackTrace, A._StackTrace, A._Required, A.LinkedHashMapCell, A.LinkedHashMapKeyIterator, A.JSSyntaxRegExp, A._MatchImplementation, A._AllMatchesIterator, A.StringMatch, A._StringAllMatchesIterator, A._Cell, A._UnmodifiableNativeByteBufferView, A.Rti, A._FunctionParameters, A._Type, A._TimerImpl, A._AsyncAwaitCompleter, A._SyncStarIterator, A.AsyncError, A._Completer, A._FutureListener, A._Future, A._AsyncCallbackEntry, A._StreamIterator, A._Zone, A._HashMapKeyIterator, A._LinkedHashSetCell, A._LinkedHashSetIterator, A._UnmodifiableMapMixin, A.Codec, A.Converter, A._JsonStringifier, A._JsonPrettyPrintMixin, A._Utf8Encoder, A._Utf8Decoder, A._BigIntImpl, A.DateTime, A.Duration, A._Enum, A.OutOfMemoryError, A.StackOverflowError, A._Exception, A.FormatException, A.IntegerDivisionByZeroException, A.MapEntry, A.Null, A._StringStackTrace, A.RuneIterator, A.StringBuffer, A.CssStyleDeclarationBase, A.ImmutableListMixin, A.FixedSizeListIterator, A.NullRejectionException, A.Endian, A.ArchiveFile, A.Bz2BitReader, A.BZip2Decoder, A.FileContent, A.Aes, A.CipherParameters, A.BaseKeyDerivator, A.BaseMac, A.BaseDigest, A.Register64, A.BaseBlockCipher, A.InputStreamBase, A.OutputStreamBase, A.ZipDirectory, A.AesHeader, A.ZipFileHeader, A.ZipDecoder, A.HuffmanTable, A.Inflate, A.CancelationToken, A.DefaultEquality, A.ListEquality, A._DelegatingIterableBase, A.Equatable, A.Excel, A.NumFormatMaintainer, A.NumFormat, A.Parser, A._SharedStringsMaintainer, A._IndexingHolder, A.SharedString, A.TextSpan, A.CellValue, A.Sheet, A.FastList, A.ExcelService, A._$X, A.LogEvent, A.LogFilter, A.LogOutput, A.LogPrinter, A.Logger, A.OutputEvent, A.Context, A.ParserException, A.Parser0, A.Token, A.MatchesIterator, A.CharacterPredicate, A.LookupCharPredicate, A.RangeCharPredicate, A.WhitespaceCharPredicate, A._WebWorkerChannel, A.WorkerRunner, A.Converter0, A.SquadronException, A.CancelationTokenReference, A.DtdExternalId, A.XmlEntityMapping, A.XmlException, A.XmlFormatException, A.XmlDescendantsIterator, A.XmlAttributesBase, A.XmlHasAttributes, A.XmlChildrenBase, A.XmlHasChildren, A.XmlHasName, A.XmlParentBase, A.XmlHasParent, A.XmlValueBase, A.XmlHasVisitor, A.XmlHasWriter, A._XmlNode_Object_XmlAttributesBase, A.XmlCache, A._XmlName_Object_XmlHasVisitor, A.XmlVisitor, A._XmlWriter_Object_XmlVisitor, A.XmlAnnotator, A.XmlHasBuffer, A.XmlHasLocation, A.XmlHasParent0, A.__XmlEventEncoderSink_Object_XmlEventVisitor, A.__XmlNodeDecoderSink_Object_XmlEventVisitor, A._XmlEvent_Object_XmlHasParent, A.XmlEventIterator, A.XmlEventParser, A.ConversionSink, A._XmlEventAttribute_Object_XmlNamed, A.XmlNamed, A.XmlEventVisitor]);
+    _inheritMany(A.Object, [A.JS_CONST, J.Interceptor, J.ArrayIterator, A.Iterable, A.CastIterator, A.Error, A.ListBase, A.SentinelValue, A.ListIterator, A.MappedIterator, A.WhereIterator, A.SkipIterator, A.EmptyIterator, A.WhereTypeIterator, A.FixedLengthListMixin, A.UnmodifiableListMixin, A.MapBase, A.Symbol, A._Record, A.MapView, A.ConstantMap, A.Closure, A._KeysOrValuesOrElementsIterator, A.SetBase, A.JSInvocationMirror, A.TypeErrorDecoder, A.NullThrownFromJavaScriptException, A.ExceptionAndStackTrace, A._StackTrace, A._Required, A.LinkedHashMapCell, A.LinkedHashMapKeyIterator, A.JSSyntaxRegExp, A._MatchImplementation, A._AllMatchesIterator, A.StringMatch, A._StringAllMatchesIterator, A._Cell, A._UnmodifiableNativeByteBufferView, A.Rti, A._FunctionParameters, A._Type, A._TimerImpl, A._AsyncAwaitCompleter, A._SyncStarIterator, A.AsyncError, A._Completer, A._FutureListener, A._Future, A._AsyncCallbackEntry, A._StreamIterator, A._Zone, A._HashMapKeyIterator, A._LinkedHashSetCell, A._LinkedHashSetIterator, A._UnmodifiableMapMixin, A.Codec, A.Converter, A._JsonStringifier, A._JsonPrettyPrintMixin, A._Utf8Encoder, A._Utf8Decoder, A._BigIntImpl, A.DateTime, A.Duration, A._Enum, A.OutOfMemoryError, A.StackOverflowError, A._Exception, A.FormatException, A.IntegerDivisionByZeroException, A.MapEntry, A.Null, A._StringStackTrace, A.RuneIterator, A.StringBuffer, A.CssStyleDeclarationBase, A.ImmutableListMixin, A.FixedSizeListIterator, A.NullRejectionException, A.Endian, A.ArchiveFile, A.Bz2BitReader, A.BZip2Decoder, A.FileContent, A.Aes, A.CipherParameters, A.BaseKeyDerivator, A.BaseMac, A.BaseDigest, A.Register64, A.BaseBlockCipher, A.InputStreamBase, A.OutputStreamBase, A.ZipDirectory, A.AesHeader, A.ZipFileHeader, A.ZipDecoder, A.HuffmanTable, A.Inflate, A.CancelationToken, A.DefaultEquality, A.ListEquality, A._DelegatingIterableBase, A.Equatable, A.Excel, A.NumFormatMaintainer, A.NumFormat, A.Parser, A._SharedStringsMaintainer, A._IndexingHolder, A.SharedString, A.TextSpan, A.CellValue, A.Sheet, A.FastList, A.ExcelFileRepository, A._$X, A.LogEvent, A.LogFilter, A.LogOutput, A.LogPrinter, A.Logger, A.OutputEvent, A.Context, A.ParserException, A.Parser0, A.Token, A.MatchesIterator, A.CharacterPredicate, A.LookupCharPredicate, A.RangeCharPredicate, A.WhitespaceCharPredicate, A._WebWorkerChannel, A.WorkerRunner, A.Converter0, A.SquadronException, A.CancelationTokenReference, A.DtdExternalId, A.XmlEntityMapping, A.XmlException, A.XmlFormatException, A.XmlDescendantsIterator, A.XmlAttributesBase, A.XmlHasAttributes, A.XmlChildrenBase, A.XmlHasChildren, A.XmlHasName, A.XmlParentBase, A.XmlHasParent, A.XmlValueBase, A.XmlHasVisitor, A.XmlHasWriter, A._XmlNode_Object_XmlAttributesBase, A.XmlCache, A._XmlName_Object_XmlHasVisitor, A.XmlVisitor, A._XmlWriter_Object_XmlVisitor, A.XmlAnnotator, A.XmlHasBuffer, A.XmlHasLocation, A.XmlHasParent0, A.__XmlEventEncoderSink_Object_XmlEventVisitor, A.__XmlNodeDecoderSink_Object_XmlEventVisitor, A._XmlEvent_Object_XmlHasParent, A.XmlEventIterator, A.XmlEventParser, A.ConversionSink, A._XmlEventAttribute_Object_XmlNamed, A.XmlNamed, A.XmlEventVisitor]);
     _inheritMany(J.Interceptor, [J.JSBool, J.JSNull, J.JavaScriptObject, J.JavaScriptBigInt, J.JavaScriptSymbol, J.JSNumber, J.JSString]);
     _inheritMany(J.JavaScriptObject, [J.LegacyJavaScriptObject, J.JSArray, A.NativeByteBuffer, A.NativeTypedData, A.EventTarget, A.AccessibleNodeList, A.Blob, A.CssTransformComponent, A.CssRule, A._CssStyleDeclaration_JavaScriptObject_CssStyleDeclarationBase, A.CssStyleValue, A.DataTransferItemList, A.DomException, A._DomRectList_JavaScriptObject_ListMixin, A.DomRectReadOnly, A._DomStringList_JavaScriptObject_ListMixin, A.DomTokenList, A._FileList_JavaScriptObject_ListMixin, A.Gamepad, A.History, A._HtmlCollection_JavaScriptObject_ListMixin, A.Location, A.MediaList, A._MidiInputMap_JavaScriptObject_MapMixin, A._MidiOutputMap_JavaScriptObject_MapMixin, A.MimeType, A._MimeTypeArray_JavaScriptObject_ListMixin, A._NodeList_JavaScriptObject_ListMixin, A.Plugin, A._PluginArray_JavaScriptObject_ListMixin, A._RtcStatsReport_JavaScriptObject_MapMixin, A.SpeechGrammar, A._SpeechGrammarList_JavaScriptObject_ListMixin, A.SpeechRecognitionResult, A._Storage_JavaScriptObject_MapMixin, A.StyleSheet, A._TextTrackCueList_JavaScriptObject_ListMixin, A.TimeRanges, A.Touch, A._TouchList_JavaScriptObject_ListMixin, A.TrackDefaultList, A.Url, A.__CssRuleList_JavaScriptObject_ListMixin, A.__GamepadList_JavaScriptObject_ListMixin, A.__NamedNodeMap_JavaScriptObject_ListMixin, A.__SpeechRecognitionResultList_JavaScriptObject_ListMixin, A.__StyleSheetList_JavaScriptObject_ListMixin, A.Length, A._LengthList_JavaScriptObject_ListMixin, A.Number, A._NumberList_JavaScriptObject_ListMixin, A.PointList, A._StringList_JavaScriptObject_ListMixin, A.Transform, A._TransformList_JavaScriptObject_ListMixin, A.AudioBuffer, A._AudioParamMap_JavaScriptObject_MapMixin]);
     _inheritMany(J.LegacyJavaScriptObject, [J.PlainJavaScriptObject, J.UnknownJavaScriptObject, J.JavaScriptFunction]);
@@ -24552,9 +24609,6 @@
     _inherit(A._EfficientLengthCastIterable, A.CastIterable);
     _inherit(A._CastListBase, A.__CastListBase__CastIterableBase_ListMixin);
     _inherit(A.CastList, A._CastListBase);
-    _inheritMany(A.MapBase, [A.CastMap, A.UnmodifiableMapBase, A.JsLinkedHashMap, A._HashMap]);
-    _inheritMany(A.Closure, [A.Closure2Args, A.CastMap_entries_closure, A.Instantiation, A.Closure0Args, A.TearOffClosure, A.JsLinkedHashMap_values_closure, A.initHooks_closure, A.initHooks_closure1, A._AsyncRun__initializeScheduleImmediate_internalCallback, A._AsyncRun__initializeScheduleImmediate_closure, A._awaitOnObject_closure, A.Future_wait_closure, A._Future__chainForeignFuture_closure, A._Future__propagateToListeners_handleWhenCompleteCallback_closure, A.MapBase_entries_closure, A._BigIntImpl_hashCode_finish, A.jsify__convert, A.promiseToFuture_closure, A.promiseToFuture_closure0, A.dartify_convert, A.setEquals_closure, A._combine_closure0, A.mapPropsToString_closure, A.Parser__parseRelations_closure, A.Parser__parseSharedStrings_closure, A.Parser__parseSharedStrings_closure0, A.Parser__parseContent_closure, A.Parser__parseMergedCells__closure, A.Parser__parseStyles_closure, A.Parser__parseStyles__closure1, A.Parser__parseStyles_closure0, A.Parser__parseStyles_closure1, A.Parser__parseStyles__closure0, A.Parser__parseStyles_closure2, A.Parser__parseStyles__closure, A.Parser__parseStyles___closure, A.Parser__parseTable_closure, A.Parser__parseRow_closure, A.Parser__parseValue_closure, A.Parser__getAvailableRid_closure0, A.Parser__parseColWidthsRowHeights_closure, A.Parser__parseColWidthsRowHeights_closure0, A.Parser__parseColWidthsRowHeights_closure1, A.SharedString_textSpan_getBool, A.SharedString_textSpan_getDouble, A.SharedString_stringValue_closure, A.getBorderStyleByName_closure, A.Sheet__countRowsAndColumns_closure, A._cellCoordsFromCellId_closure, A._$ExcelServiceWorkerService_operations_closure, A._single_closure, A._range_closure, A.RecordParserExtension2_map2_closure, A.RecordParserExtension3_map3_closure, A.RecordParserExtension4_map4_closure, A.RecordParserExtension5_map5_closure, A.RecordParserExtension8_map8_closure, A.string_closure, A.bootstrap_closure0, A.bootstrap_closure, A.$jsify_squadronJsify, A.$dartify_squadronDartify, A.JsWorkerRunnerExt_get_handle_closure, A.WorkerRunner_connect_closure, A.WorkerRunner_connect_closure0, A.Converter_list_closure, A.Converter_list_closure0, A.Converter_map_closure, A.Converter_map_closure0, A.SquadronCanceledException_SquadronCanceledException$from_closure, A.SquadronCanceledExceptions_message_closure, A.SquadronCanceledExceptions_serialize_closure, A._asNumericCharacterReferences_closure, A.XmlStringExtension_get_innerText_closure, A.XmlStringExtension_get_innerText_closure0, A.XmlDeclaration_copy_closure, A.XmlDocument_copy_closure, A.XmlElement_copy_closure, A.XmlElement_copy_closure0, A.createNameMatcher_closure, A.createNameMatcher_closure0, A.XmlNodeList__expandFragment_closure, A._XmlNodeDecoderSink_convertAttributes_closure, A.XmlEventParser_characterData_closure, A.XmlEventParser_startElement_closure, A.XmlEventParser_attribute_closure, A.XmlEventParser_attributeAssignment_closure, A.XmlEventParser_attributeValueDoubleQuote_closure, A.XmlEventParser_attributeValueSingleQuote_closure, A.XmlEventParser_attributeValueNoQuote_closure, A.XmlEventParser_endElement_closure, A.XmlEventParser_comment_closure, A.XmlEventParser_cdata_closure, A.XmlEventParser_declaration_closure, A.XmlEventParser_processing_closure0, A.XmlEventParser_doctype_closure, A.XmlEventParser_doctypeExternalIdSystem_closure, A.XmlEventParser_doctypeExternalIdPublic_closure, A.XmlEventParser_doctypeIntSubset_closure, A.eventParserCache_closure]);
-    _inheritMany(A.Closure2Args, [A.CastMap_forEach_closure, A.ConstantMap_map_closure, A.Primitives_functionNoSuchMethod_closure, A.JsLinkedHashMap_addAll_closure, A.initHooks_closure0, A._awaitOnObject_closure0, A._wrapJsFunctionForAsync_closure, A.Future_wait_handleError, A._Future__chainForeignFuture_closure0, A.LinkedHashMap_LinkedHashMap$from_closure, A.MapBase_mapToString_closure, A._JsonStringifier_writeMap_closure, A._JsonPrettyPrintMixin_writeMap_closure, A._BigIntImpl_hashCode_combine, A.NoSuchMethodError_toString_closure, A.MidiInputMap_keys_closure, A.MidiOutputMap_keys_closure, A.RtcStatsReport_keys_closure, A.Storage_keys_closure, A.AudioParamMap_keys_closure, A._combine_closure, A._combine_closure1, A.Parser__parseMergedCells_closure, A.Parser__getAvailableRid_closure, A._hexTableReverse_closure, A.ExcelColor_valuesAsMap_closure, A.optimizedRanges_closure, A.optimizedRanges_closure0, A._pattern_closure, A.Converter_map__closure, A.XmlEventParser_processing_closure]);
     _inheritMany(A.Error, [A.LateError, A.ReachabilityError, A.TypeError, A.JsNoSuchMethodError, A.UnknownJsTypeError, A._CyclicInitializationError, A.RuntimeError, A.AssertionError, A._Error, A.JsonUnsupportedObjectError, A.ArgumentError, A.NoSuchMethodError, A.UnsupportedError, A.UnimplementedError, A.StateError, A.ConcurrentModificationError]);
     _inherit(A.UnmodifiableListBase, A.ListBase);
     _inherit(A.CodeUnits, A.UnmodifiableListBase);
@@ -24562,6 +24616,7 @@
     _inheritMany(A.ListIterable, [A.SubListIterable, A.MappedListIterable, A._ListIndicesIterable, A.ReversedListIterable]);
     _inherit(A.EfficientLengthMappedIterable, A.MappedIterable);
     _inherit(A.EfficientLengthSkipIterable, A.SkipIterable);
+    _inheritMany(A.MapBase, [A.UnmodifiableMapBase, A.JsLinkedHashMap, A._HashMap]);
     _inherit(A.ListMapView, A.UnmodifiableMapBase);
     _inheritMany(A._Record, [A._Record2, A._Record3, A._RecordN]);
     _inherit(A._Record_2, A._Record2);
@@ -24570,6 +24625,8 @@
     _inherit(A._UnmodifiableMapView_MapView__UnmodifiableMapMixin, A.MapView);
     _inherit(A.UnmodifiableMapView, A._UnmodifiableMapView_MapView__UnmodifiableMapMixin);
     _inherit(A.ConstantMapView, A.UnmodifiableMapView);
+    _inheritMany(A.Closure, [A.Closure2Args, A.Instantiation, A.Closure0Args, A.TearOffClosure, A.JsLinkedHashMap_values_closure, A.initHooks_closure, A.initHooks_closure1, A._AsyncRun__initializeScheduleImmediate_internalCallback, A._AsyncRun__initializeScheduleImmediate_closure, A._awaitOnObject_closure, A.Future_wait_closure, A._Future__chainForeignFuture_closure, A._Future__propagateToListeners_handleWhenCompleteCallback_closure, A.MapBase_entries_closure, A._BigIntImpl_hashCode_finish, A.jsify__convert, A.promiseToFuture_closure, A.promiseToFuture_closure0, A.dartify_convert, A.setEquals_closure, A._combine_closure0, A.mapPropsToString_closure, A.Parser__parseRelations_closure, A.Parser__parseSharedStrings_closure, A.Parser__parseSharedStrings_closure0, A.Parser__parseContent_closure, A.Parser__parseMergedCells__closure, A.Parser__parseStyles_closure, A.Parser__parseStyles__closure1, A.Parser__parseStyles_closure0, A.Parser__parseStyles_closure1, A.Parser__parseStyles__closure0, A.Parser__parseStyles_closure2, A.Parser__parseStyles__closure, A.Parser__parseStyles___closure, A.Parser__parseTable_closure, A.Parser__parseRow_closure, A.Parser__parseValue_closure, A.Parser__getAvailableRid_closure0, A.Parser__parseColWidthsRowHeights_closure, A.Parser__parseColWidthsRowHeights_closure0, A.Parser__parseColWidthsRowHeights_closure1, A.SharedString_textSpan_getBool, A.SharedString_textSpan_getDouble, A.SharedString_stringValue_closure, A.getBorderStyleByName_closure, A.Sheet_rows_closure, A.Sheet__countRowsAndColumns_closure, A._cellCoordsFromCellId_closure, A.ExcelFileRepository_getData_closure, A.ExcelFileRepository_getData__closure, A._$ExcelFileRepositoryWorkerService_operations_closure, A._$ExcelFileRepositoryWorkerService_operations_closure0, A._$ExcelFileRepositoryWorkerService_operations_closure1, A._$ExcelFileRepositoryWorkerService_operations_closure2, A._single_closure, A._range_closure, A.RecordParserExtension2_map2_closure, A.RecordParserExtension3_map3_closure, A.RecordParserExtension4_map4_closure, A.RecordParserExtension5_map5_closure, A.RecordParserExtension8_map8_closure, A.string_closure, A.bootstrap_closure0, A.bootstrap_closure, A.$jsify_squadronJsify, A.$dartify_squadronDartify, A.JsWorkerRunnerExt_get_handle_closure, A.WorkerRunner_connect_closure, A.WorkerRunner_connect_closure0, A.Converter_nullable_closure, A.Converter_list_closure, A.Converter_list_closure0, A.SquadronCanceledException_SquadronCanceledException$from_closure, A.SquadronCanceledExceptions_message_closure, A.SquadronCanceledExceptions_serialize_closure, A._asNumericCharacterReferences_closure, A.XmlStringExtension_get_innerText_closure, A.XmlStringExtension_get_innerText_closure0, A.XmlDeclaration_copy_closure, A.XmlDocument_copy_closure, A.XmlElement_copy_closure, A.XmlElement_copy_closure0, A.createNameMatcher_closure, A.createNameMatcher_closure0, A.XmlNodeList__expandFragment_closure, A._XmlNodeDecoderSink_convertAttributes_closure, A.XmlEventParser_characterData_closure, A.XmlEventParser_startElement_closure, A.XmlEventParser_attribute_closure, A.XmlEventParser_attributeAssignment_closure, A.XmlEventParser_attributeValueDoubleQuote_closure, A.XmlEventParser_attributeValueSingleQuote_closure, A.XmlEventParser_attributeValueNoQuote_closure, A.XmlEventParser_endElement_closure, A.XmlEventParser_comment_closure, A.XmlEventParser_cdata_closure, A.XmlEventParser_declaration_closure, A.XmlEventParser_processing_closure0, A.XmlEventParser_doctype_closure, A.XmlEventParser_doctypeExternalIdSystem_closure, A.XmlEventParser_doctypeExternalIdPublic_closure, A.XmlEventParser_doctypeIntSubset_closure, A.eventParserCache_closure]);
+    _inheritMany(A.Closure2Args, [A.ConstantMap_map_closure, A.Primitives_functionNoSuchMethod_closure, A.JsLinkedHashMap_addAll_closure, A.initHooks_closure0, A._awaitOnObject_closure0, A._wrapJsFunctionForAsync_closure, A.Future_wait_handleError, A._Future__chainForeignFuture_closure0, A.LinkedHashMap_LinkedHashMap$from_closure, A.MapBase_mapToString_closure, A._JsonStringifier_writeMap_closure, A._JsonPrettyPrintMixin_writeMap_closure, A._BigIntImpl_hashCode_combine, A.NoSuchMethodError_toString_closure, A.MidiInputMap_keys_closure, A.MidiOutputMap_keys_closure, A.RtcStatsReport_keys_closure, A.Storage_keys_closure, A.AudioParamMap_keys_closure, A._combine_closure, A._combine_closure1, A.Parser__parseMergedCells_closure, A.Parser__getAvailableRid_closure, A._hexTableReverse_closure, A.ExcelColor_valuesAsMap_closure, A.optimizedRanges_closure, A.optimizedRanges_closure0, A._pattern_closure, A.XmlEventParser_processing_closure]);
     _inheritMany(A.ConstantMap, [A.ConstantStringMap, A.GeneralConstantMap]);
     _inheritMany(A.SetBase, [A.ConstantSet, A._SetBase]);
     _inherit(A.GeneralConstantSet, A.ConstantSet);
@@ -24675,7 +24732,7 @@
     _inheritMany(A.Equatable, [A.Border, A._BorderSet, A.CellIndex, A.CellStyle, A.Data, A._FontStyle, A.ExcelColor, A._Span]);
     _inheritMany(A._Enum, [A.BorderStyle, A.ColorType, A.TextWrapping, A.VerticalAlign, A.HorizontalAlign, A.Underline, A.FontScheme, A.Level, A.XmlAttributeType, A.XmlNodeType]);
     _inheritMany(A.CellValue, [A.FormulaCellValue, A.IntCellValue, A.DoubleCellValue, A.DateCellValue, A.TextCellValue, A.BoolCellValue, A.TimeCellValue, A.DateTimeCellValue]);
-    _inherit(A._$ExcelServiceWorkerService, A.ExcelService);
+    _inherit(A._$ExcelFileRepositoryWorkerService, A.ExcelFileRepository);
     _inherit(A.Result, A.Context);
     _inheritMany(A.Result, [A.Success, A.Failure]);
     _inheritMany(A.Parser0, [A.ReferenceParser, A.DelegateParser, A.ListParser, A.SequenceParser2, A.SequenceParser3, A.SequenceParser4, A.SequenceParser5, A.SequenceParser8, A.EpsilonParser, A.NewlineParser, A.AnyCharacterParser, A.SingleCharacterParser, A.PredicateParser, A.RepeatingCharacterParser, A.XmlCharacterDataParser]);
@@ -24825,7 +24882,7 @@
     typeUniverse: {eC: new Map(), tR: {}, eT: {}, tPV: {}, sEA: []},
     mangledGlobalNames: {int: "int", double: "double", num: "num", String: "String", bool: "bool", Null: "Null", List: "List", Object: "Object", Map: "Map"},
     mangledNames: {},
-    types: ["~(XmlElement)", "~()", "Parser0<String>()", "~(String,@)", "~(@)", "Parser0<+(String,XmlAttributeType)>()", "Parser0<@>()", "Object?(Object?)", "String(Match)", "~(Object?,Object?)", "~(Object?)", "String()", "Failure(Failure,Failure)", "Parser0<DtdExternalId>()", "~(~())", "@(@)", "Null(@)", "Null()", "@()", "int(int)", "int(Object?,Object?)", "bool(String)", "bool(int)", "String(int)", "XmlAttribute(XmlAttribute)", "XmlNode(XmlNode)", "bool(XmlHasName)", "+(String,XmlAttributeType)(String,String,String)", "bool(BorderStyle)", "int(String,String)", "Null(Object,StackTrace)", "_IndexingHolder()", "bool(XmlElement)", "int(XmlElement)", "_Future<@>(@)", "~(int)", "MapEntry<String,int>(int,String)", "MapEntry<String,ExcelColor>(int,ExcelColor)", "~(@,@)", "Future<@>(List<@>)", "int(RangeCharPredicate,RangeCharPredicate)", "int(int,RangeCharPredicate)", "RangeCharPredicate(String)", "RangeCharPredicate(String,String,String)", "CharacterPredicate(String?,CharacterPredicate)", "~(WorkerRunner)", "Null(JSObject)", "~(LogEvent)", "@(String)", "~(JSObject)", "~(OutputEvent)", "CancelationTokenReference()", "SquadronCanceledException(CanceledException)", "String(SquadronCanceledException)", "List<@>(SquadronCanceledException)", "@(@,String)", "bool(XmlNode)", "String?(XmlNode)", "int(int,int)", "Null(~())", "~(Symbol0,@)", "XmlAttribute(XmlEventAttribute)", "Parser0<XmlEvent>()", "Parser0<XmlTextEvent>()", "Parser0<XmlStartElementEvent>()", "Parser0<List<XmlEventAttribute>>()", "Parser0<XmlEventAttribute>()", "~(String,String)", "Null(@,StackTrace)", "Parser0<XmlCommentEvent>()", "Parser0<XmlCDATAEvent>()", "Parser0<XmlDeclarationEvent>()", "Parser0<XmlProcessingEvent>()", "Parser0<XmlDoctypeEvent>()", "bool(Object?)", "~(int,@)", "String(Object?)", "XmlRawTextEvent(String)", "XmlStartElementEvent(String,String,List<XmlEventAttribute>,String,String)", "XmlEventAttribute(String,String,+(String,XmlAttributeType))", "+(String,XmlAttributeType)(String,String,String,+(String,XmlAttributeType))", "~(Object,StackTrace)", "+(String,XmlAttributeType)(String)", "XmlEndElementEvent(String,String,String,String)", "XmlCommentEvent(String,String,String)", "XmlCDATAEvent(String,String,String)", "XmlDeclarationEvent(String,List<XmlEventAttribute>,String,String)", "String(String,String)", "XmlProcessingEvent(String,String,String,String)", "XmlDoctypeEvent(String,String,String,DtdExternalId?,String,String?,String,String)", "DtdExternalId(String,String,+(String,XmlAttributeType))", "DtdExternalId(String,String,+(String,XmlAttributeType),String,+(String,XmlAttributeType))", "String(String,String,String)", "Parser0<XmlEvent>(XmlEntityMapping)", "~(XmlEvent)", "int(@,@)", "~(String,XmlNode)", "int(int,Object?)", "WorkerService(List<@>)", "CharacterPredicate(Iterable<RangeCharPredicate>)", "0^(@)<Object?>", "SquadronCanceledException?(List<@>?)", "~(XmlNode)", "Parser0<XmlEndElementEvent>()"],
+    types: ["~(XmlElement)", "~()", "Parser0<String>()", "~(String,@)", "~(@)", "Parser0<+(String,XmlAttributeType)>()", "Parser0<@>()", "Object?(Object?)", "String(Match)", "~(Object?,Object?)", "String()", "~(Object?)", "Failure(Failure,Failure)", "Parser0<DtdExternalId>()", "~(~())", "@(@)", "Null(@)", "Null()", "@()", "int(int)", "int(Object?,Object?)", "bool(String)", "bool(int)", "String(int)", "XmlAttribute(XmlAttribute)", "XmlNode(XmlNode)", "bool(XmlHasName)", "+(String,XmlAttributeType)(String,String,String)", "~(int)", "int(String,String)", "_Future<@>(@)", "_IndexingHolder()", "bool(XmlElement)", "int(XmlElement)", "bool(BorderStyle)", "Data?(int)", "~(@,@)", "MapEntry<String,int>(int,String)", "MapEntry<String,ExcelColor>(int,ExcelColor)", "@(String)", "List<CellValue?>(List<Data?>)", "CellValue?(Data?)", "int/(List<@>)", "Future<List<List<@>>>(List<@>)", "String/(List<@>)", "Future<~>(List<@>)", "int(RangeCharPredicate,RangeCharPredicate)", "int(int,RangeCharPredicate)", "RangeCharPredicate(String)", "RangeCharPredicate(String,String,String)", "CharacterPredicate(String?,CharacterPredicate)", "~(WorkerRunner)", "Null(JSObject)", "~(LogEvent)", "int(int,int)", "~(JSObject)", "~(OutputEvent)", "CancelationTokenReference()", "SquadronCanceledException(CanceledException)", "String(SquadronCanceledException)", "List<@>(SquadronCanceledException)", "@(@,String)", "bool(XmlNode)", "String?(XmlNode)", "Null(~())", "Null(@,StackTrace)", "~(Symbol0,@)", "XmlAttribute(XmlEventAttribute)", "Parser0<XmlEvent>()", "Parser0<XmlTextEvent>()", "Parser0<XmlStartElementEvent>()", "Parser0<List<XmlEventAttribute>>()", "~(String,String)", "~(int,@)", "Parser0<XmlEndElementEvent>()", "Parser0<XmlCommentEvent>()", "Parser0<XmlCDATAEvent>()", "Parser0<XmlDeclarationEvent>()", "Parser0<XmlProcessingEvent>()", "Parser0<XmlDoctypeEvent>()", "bool(Object?)", "~(Object,StackTrace)", "String(Object?)", "XmlRawTextEvent(String)", "XmlStartElementEvent(String,String,List<XmlEventAttribute>,String,String)", "XmlEventAttribute(String,String,+(String,XmlAttributeType))", "+(String,XmlAttributeType)(String,String,String,+(String,XmlAttributeType))", "Null(Object,StackTrace)", "+(String,XmlAttributeType)(String)", "XmlEndElementEvent(String,String,String,String)", "XmlCommentEvent(String,String,String)", "XmlCDATAEvent(String,String,String)", "XmlDeclarationEvent(String,List<XmlEventAttribute>,String,String)", "String(String,String)", "XmlProcessingEvent(String,String,String,String)", "XmlDoctypeEvent(String,String,String,DtdExternalId?,String,String?,String,String)", "DtdExternalId(String,String,+(String,XmlAttributeType))", "DtdExternalId(String,String,+(String,XmlAttributeType),String,+(String,XmlAttributeType))", "String(String,String,String)", "Parser0<XmlEvent>(XmlEntityMapping)", "~(XmlEvent)", "int(@,@)", "~(String,XmlNode)", "int(int,Object?)", "WorkerService(List<@>)", "CharacterPredicate(Iterable<RangeCharPredicate>)", "0^(@)<Object?>", "SquadronCanceledException?(List<@>?)", "~(XmlNode)", "Parser0<XmlEventAttribute>()"],
     interceptorsByTag: null,
     leafTags: null,
     arrayRti: Symbol("$ti"),
@@ -24837,7 +24894,7 @@
       "8;": types => o => o instanceof A._Record_8 && A.pairwiseIsTest(types, o._values)
     }
   };
-  A._Universe_addRules(init.typeUniverse, JSON.parse('{"JavaScriptFunction":"LegacyJavaScriptObject","PlainJavaScriptObject":"LegacyJavaScriptObject","UnknownJavaScriptObject":"LegacyJavaScriptObject","AbortPaymentEvent":"JavaScriptObject","ExtendableEvent":"JavaScriptObject","Event":"JavaScriptObject","AudioContext":"BaseAudioContext","AbsoluteOrientationSensor":"EventTarget","OrientationSensor":"EventTarget","Sensor":"EventTarget","MathMLElement":"Element","AudioElement":"HtmlElement","MediaElement":"HtmlElement","HtmlDocument":"Node","Document":"Node","VttCue":"TextTrackCue","CDataSection":"CharacterData","Text":"CharacterData","HtmlFormControlsCollection":"HtmlCollection","CssCharsetRule":"CssRule","CssMatrixComponent":"CssTransformComponent","CssStyleSheet":"StyleSheet","CssurlImageValue":"CssStyleValue","CssImageValue":"CssStyleValue","CssResourceValue":"CssStyleValue","JSArray":{"List":["1"],"EfficientLengthIterable":["1"],"JSObject":[],"Iterable":["1"]},"JSBool":{"bool":[],"TrustedGetRuntimeType":[]},"JSNull":{"Null":[],"TrustedGetRuntimeType":[]},"JavaScriptObject":{"JSObject":[]},"LegacyJavaScriptObject":{"JSObject":[]},"JSUnmodifiableArray":{"JSArray":["1"],"List":["1"],"EfficientLengthIterable":["1"],"JSObject":[],"Iterable":["1"]},"ArrayIterator":{"Iterator":["1"]},"JSNumber":{"double":[],"num":[],"Comparable":["num"]},"JSInt":{"double":[],"int":[],"num":[],"Comparable":["num"],"TrustedGetRuntimeType":[]},"JSNumNotInt":{"double":[],"num":[],"Comparable":["num"],"TrustedGetRuntimeType":[]},"JSString":{"String":[],"Comparable":["String"],"Pattern":[],"TrustedGetRuntimeType":[]},"_CastIterableBase":{"Iterable":["2"]},"CastIterator":{"Iterator":["2"]},"CastIterable":{"_CastIterableBase":["1","2"],"Iterable":["2"],"Iterable.E":"2"},"_EfficientLengthCastIterable":{"CastIterable":["1","2"],"_CastIterableBase":["1","2"],"EfficientLengthIterable":["2"],"Iterable":["2"],"Iterable.E":"2"},"_CastListBase":{"ListBase":["2"],"List":["2"],"_CastIterableBase":["1","2"],"EfficientLengthIterable":["2"],"Iterable":["2"]},"CastList":{"_CastListBase":["1","2"],"ListBase":["2"],"List":["2"],"_CastIterableBase":["1","2"],"EfficientLengthIterable":["2"],"Iterable":["2"],"ListBase.E":"2","Iterable.E":"2"},"CastMap":{"MapBase":["3","4"],"Map":["3","4"],"MapBase.K":"3","MapBase.V":"4"},"LateError":{"Error":[]},"ReachabilityError":{"Error":[]},"CodeUnits":{"ListBase":["int"],"UnmodifiableListMixin":["int"],"List":["int"],"EfficientLengthIterable":["int"],"Iterable":["int"],"ListBase.E":"int","UnmodifiableListMixin.E":"int"},"EfficientLengthIterable":{"Iterable":["1"]},"ListIterable":{"EfficientLengthIterable":["1"],"Iterable":["1"]},"SubListIterable":{"ListIterable":["1"],"EfficientLengthIterable":["1"],"Iterable":["1"],"Iterable.E":"1","ListIterable.E":"1"},"ListIterator":{"Iterator":["1"]},"MappedIterable":{"Iterable":["2"],"Iterable.E":"2"},"EfficientLengthMappedIterable":{"MappedIterable":["1","2"],"EfficientLengthIterable":["2"],"Iterable":["2"],"Iterable.E":"2"},"MappedIterator":{"Iterator":["2"]},"MappedListIterable":{"ListIterable":["2"],"EfficientLengthIterable":["2"],"Iterable":["2"],"Iterable.E":"2","ListIterable.E":"2"},"WhereIterable":{"Iterable":["1"],"Iterable.E":"1"},"WhereIterator":{"Iterator":["1"]},"SkipIterable":{"Iterable":["1"],"Iterable.E":"1"},"EfficientLengthSkipIterable":{"SkipIterable":["1"],"EfficientLengthIterable":["1"],"Iterable":["1"],"Iterable.E":"1"},"SkipIterator":{"Iterator":["1"]},"EmptyIterable":{"EfficientLengthIterable":["1"],"Iterable":["1"],"Iterable.E":"1"},"EmptyIterator":{"Iterator":["1"]},"WhereTypeIterable":{"Iterable":["1"],"Iterable.E":"1"},"WhereTypeIterator":{"Iterator":["1"]},"UnmodifiableListBase":{"ListBase":["1"],"UnmodifiableListMixin":["1"],"List":["1"],"EfficientLengthIterable":["1"],"Iterable":["1"]},"_ListIndicesIterable":{"ListIterable":["int"],"EfficientLengthIterable":["int"],"Iterable":["int"],"Iterable.E":"int","ListIterable.E":"int"},"ListMapView":{"MapBase":["int","1"],"_UnmodifiableMapMixin":["int","1"],"Map":["int","1"],"MapBase.K":"int","MapBase.V":"1"},"ReversedListIterable":{"ListIterable":["1"],"EfficientLengthIterable":["1"],"Iterable":["1"],"Iterable.E":"1","ListIterable.E":"1"},"Symbol":{"Symbol0":[]},"_Record_2":{"_Record2":[],"_Record":[]},"_Record_3":{"_Record3":[],"_Record":[]},"_Record_4":{"_RecordN":[],"_Record":[]},"_Record_5":{"_RecordN":[],"_Record":[]},"_Record_8":{"_RecordN":[],"_Record":[]},"ConstantMapView":{"UnmodifiableMapView":["1","2"],"_UnmodifiableMapView_MapView__UnmodifiableMapMixin":["1","2"],"MapView":["1","2"],"_UnmodifiableMapMixin":["1","2"],"Map":["1","2"]},"ConstantMap":{"Map":["1","2"]},"ConstantStringMap":{"ConstantMap":["1","2"],"Map":["1","2"]},"_KeysOrValues":{"Iterable":["1"],"Iterable.E":"1"},"_KeysOrValuesOrElementsIterator":{"Iterator":["1"]},"GeneralConstantMap":{"ConstantMap":["1","2"],"Map":["1","2"]},"ConstantSet":{"SetBase":["1"],"Set":["1"],"EfficientLengthIterable":["1"],"Iterable":["1"]},"GeneralConstantSet":{"ConstantSet":["1"],"SetBase":["1"],"Set":["1"],"EfficientLengthIterable":["1"],"Iterable":["1"]},"Instantiation":{"Closure":[],"Function":[]},"Instantiation1":{"Closure":[],"Function":[]},"JSInvocationMirror":{"Invocation":[]},"NullError":{"TypeError":[],"Error":[]},"JsNoSuchMethodError":{"Error":[]},"UnknownJsTypeError":{"Error":[]},"_StackTrace":{"StackTrace":[]},"Closure":{"Function":[]},"Closure0Args":{"Closure":[],"Function":[]},"Closure2Args":{"Closure":[],"Function":[]},"TearOffClosure":{"Closure":[],"Function":[]},"StaticClosure":{"Closure":[],"Function":[]},"BoundClosure":{"Closure":[],"Function":[]},"_CyclicInitializationError":{"Error":[]},"RuntimeError":{"Error":[]},"_AssertionError":{"Error":[]},"JsLinkedHashMap":{"MapBase":["1","2"],"LinkedHashMap":["1","2"],"Map":["1","2"],"MapBase.K":"1","MapBase.V":"2"},"LinkedHashMapKeyIterable":{"EfficientLengthIterable":["1"],"Iterable":["1"],"Iterable.E":"1"},"LinkedHashMapKeyIterator":{"Iterator":["1"]},"JsConstantLinkedHashMap":{"JsLinkedHashMap":["1","2"],"MapBase":["1","2"],"LinkedHashMap":["1","2"],"Map":["1","2"],"MapBase.K":"1","MapBase.V":"2"},"_Record2":{"_Record":[]},"_Record3":{"_Record":[]},"_RecordN":{"_Record":[]},"JSSyntaxRegExp":{"RegExp":[],"Pattern":[]},"_MatchImplementation":{"RegExpMatch":[],"Match":[]},"_AllMatchesIterable":{"Iterable":["RegExpMatch"],"Iterable.E":"RegExpMatch"},"_AllMatchesIterator":{"Iterator":["RegExpMatch"]},"StringMatch":{"Match":[]},"_StringAllMatchesIterable":{"Iterable":["Match"],"Iterable.E":"Match"},"_StringAllMatchesIterator":{"Iterator":["Match"]},"NativeByteBuffer":{"JSObject":[],"ByteBuffer":[],"TrustedGetRuntimeType":[]},"NativeTypedData":{"JSObject":[],"TypedData":[]},"_UnmodifiableNativeByteBufferView":{"ByteBuffer":[]},"NativeByteData":{"NativeTypedData":[],"ByteData":[],"JSObject":[],"TypedData":[],"TrustedGetRuntimeType":[]},"NativeTypedArray":{"NativeTypedData":[],"JavaScriptIndexingBehavior":["1"],"JSObject":[],"TypedData":[]},"NativeTypedArrayOfDouble":{"ListBase":["double"],"NativeTypedArray":["double"],"List":["double"],"NativeTypedData":[],"JavaScriptIndexingBehavior":["double"],"EfficientLengthIterable":["double"],"JSObject":[],"TypedData":[],"Iterable":["double"],"FixedLengthListMixin":["double"]},"NativeTypedArrayOfInt":{"ListBase":["int"],"NativeTypedArray":["int"],"List":["int"],"NativeTypedData":[],"JavaScriptIndexingBehavior":["int"],"EfficientLengthIterable":["int"],"JSObject":[],"TypedData":[],"Iterable":["int"],"FixedLengthListMixin":["int"]},"NativeFloat32List":{"Float32List":[],"ListBase":["double"],"NativeTypedArray":["double"],"List":["double"],"NativeTypedData":[],"JavaScriptIndexingBehavior":["double"],"EfficientLengthIterable":["double"],"JSObject":[],"TypedData":[],"Iterable":["double"],"FixedLengthListMixin":["double"],"TrustedGetRuntimeType":[],"ListBase.E":"double"},"NativeFloat64List":{"Float64List":[],"ListBase":["double"],"NativeTypedArray":["double"],"List":["double"],"NativeTypedData":[],"JavaScriptIndexingBehavior":["double"],"EfficientLengthIterable":["double"],"JSObject":[],"TypedData":[],"Iterable":["double"],"FixedLengthListMixin":["double"],"TrustedGetRuntimeType":[],"ListBase.E":"double"},"NativeInt16List":{"NativeTypedArrayOfInt":[],"Int16List":[],"ListBase":["int"],"NativeTypedArray":["int"],"List":["int"],"NativeTypedData":[],"JavaScriptIndexingBehavior":["int"],"EfficientLengthIterable":["int"],"JSObject":[],"TypedData":[],"Iterable":["int"],"FixedLengthListMixin":["int"],"TrustedGetRuntimeType":[],"ListBase.E":"int"},"NativeInt32List":{"NativeTypedArrayOfInt":[],"Int32List":[],"ListBase":["int"],"NativeTypedArray":["int"],"List":["int"],"NativeTypedData":[],"JavaScriptIndexingBehavior":["int"],"EfficientLengthIterable":["int"],"JSObject":[],"TypedData":[],"Iterable":["int"],"FixedLengthListMixin":["int"],"TrustedGetRuntimeType":[],"ListBase.E":"int"},"NativeInt8List":{"NativeTypedArrayOfInt":[],"Int8List":[],"ListBase":["int"],"NativeTypedArray":["int"],"List":["int"],"NativeTypedData":[],"JavaScriptIndexingBehavior":["int"],"EfficientLengthIterable":["int"],"JSObject":[],"TypedData":[],"Iterable":["int"],"FixedLengthListMixin":["int"],"TrustedGetRuntimeType":[],"ListBase.E":"int"},"NativeUint16List":{"NativeTypedArrayOfInt":[],"Uint16List":[],"ListBase":["int"],"NativeTypedArray":["int"],"List":["int"],"NativeTypedData":[],"JavaScriptIndexingBehavior":["int"],"EfficientLengthIterable":["int"],"JSObject":[],"TypedData":[],"Iterable":["int"],"FixedLengthListMixin":["int"],"TrustedGetRuntimeType":[],"ListBase.E":"int"},"NativeUint32List":{"NativeTypedArrayOfInt":[],"Uint32List":[],"ListBase":["int"],"NativeTypedArray":["int"],"List":["int"],"NativeTypedData":[],"JavaScriptIndexingBehavior":["int"],"EfficientLengthIterable":["int"],"JSObject":[],"TypedData":[],"Iterable":["int"],"FixedLengthListMixin":["int"],"TrustedGetRuntimeType":[],"ListBase.E":"int"},"NativeUint8ClampedList":{"NativeTypedArrayOfInt":[],"Uint8ClampedList":[],"ListBase":["int"],"NativeTypedArray":["int"],"List":["int"],"NativeTypedData":[],"JavaScriptIndexingBehavior":["int"],"EfficientLengthIterable":["int"],"JSObject":[],"TypedData":[],"Iterable":["int"],"FixedLengthListMixin":["int"],"TrustedGetRuntimeType":[],"ListBase.E":"int"},"NativeUint8List":{"NativeTypedArrayOfInt":[],"Uint8List":[],"ListBase":["int"],"NativeTypedArray":["int"],"List":["int"],"NativeTypedData":[],"JavaScriptIndexingBehavior":["int"],"EfficientLengthIterable":["int"],"JSObject":[],"TypedData":[],"Iterable":["int"],"FixedLengthListMixin":["int"],"TrustedGetRuntimeType":[],"ListBase.E":"int"},"_Error":{"Error":[]},"_TypeError":{"TypeError":[],"Error":[]},"_Future":{"Future":["1"]},"_AsyncAwaitCompleter":{"Completer":["1"]},"_SyncStarIterator":{"Iterator":["1"]},"_SyncStarIterable":{"Iterable":["1"],"Iterable.E":"1"},"AsyncError":{"Error":[]},"_Completer":{"Completer":["1"]},"_AsyncCompleter":{"_Completer":["1"],"Completer":["1"]},"_Zone":{"Zone":[]},"_RootZone":{"_Zone":[],"Zone":[]},"_HashMap":{"MapBase":["1","2"],"Map":["1","2"]},"_IdentityHashMap":{"_HashMap":["1","2"],"MapBase":["1","2"],"Map":["1","2"],"MapBase.K":"1","MapBase.V":"2"},"_HashMapKeyIterable":{"EfficientLengthIterable":["1"],"Iterable":["1"],"Iterable.E":"1"},"_HashMapKeyIterator":{"Iterator":["1"]},"_LinkedHashSet":{"_SetBase":["1"],"SetBase":["1"],"LinkedHashSet":["1"],"Set":["1"],"EfficientLengthIterable":["1"],"Iterable":["1"]},"_LinkedHashSetIterator":{"Iterator":["1"]},"ListBase":{"List":["1"],"EfficientLengthIterable":["1"],"Iterable":["1"]},"MapBase":{"Map":["1","2"]},"UnmodifiableMapBase":{"MapBase":["1","2"],"_UnmodifiableMapMixin":["1","2"],"Map":["1","2"]},"MapView":{"Map":["1","2"]},"UnmodifiableMapView":{"_UnmodifiableMapView_MapView__UnmodifiableMapMixin":["1","2"],"MapView":["1","2"],"_UnmodifiableMapMixin":["1","2"],"Map":["1","2"]},"SetBase":{"Set":["1"],"EfficientLengthIterable":["1"],"Iterable":["1"]},"_SetBase":{"SetBase":["1"],"Set":["1"],"EfficientLengthIterable":["1"],"Iterable":["1"]},"Encoding":{"Codec":["String","List<int>"]},"JsonUnsupportedObjectError":{"Error":[]},"JsonCyclicError":{"Error":[]},"JsonCodec":{"Codec":["Object?","String"]},"JsonEncoder":{"Converter":["Object?","String"]},"Utf8Codec":{"Codec":["String","List<int>"]},"Utf8Encoder":{"Converter":["String","List<int>"]},"Utf8Decoder":{"Converter":["List<int>","String"]},"BigInt":{"Comparable":["BigInt"]},"DateTime":{"Comparable":["DateTime"]},"double":{"num":[],"Comparable":["num"]},"Duration":{"Comparable":["Duration"]},"int":{"num":[],"Comparable":["num"]},"List":{"EfficientLengthIterable":["1"],"Iterable":["1"]},"num":{"Comparable":["num"]},"RegExpMatch":{"Match":[]},"String":{"Comparable":["String"],"Pattern":[]},"_BigIntImpl":{"Comparable":["BigInt"]},"AssertionError":{"Error":[]},"TypeError":{"Error":[]},"ArgumentError":{"Error":[]},"RangeError":{"Error":[]},"IndexError":{"Error":[]},"NoSuchMethodError":{"Error":[]},"UnsupportedError":{"Error":[]},"UnimplementedError":{"Error":[]},"StateError":{"Error":[]},"ConcurrentModificationError":{"Error":[]},"OutOfMemoryError":{"Error":[]},"StackOverflowError":{"Error":[]},"IntegerDivisionByZeroException":{"Error":[]},"_StringStackTrace":{"StackTrace":[]},"Runes":{"Iterable":["int"],"Iterable.E":"int"},"RuneIterator":{"Iterator":["int"]},"StringBuffer":{"StringSink":[]},"CssRule":{"JSObject":[]},"File":{"JSObject":[]},"Gamepad":{"JSObject":[]},"MimeType":{"JSObject":[]},"Node":{"JSObject":[]},"Plugin":{"JSObject":[]},"SourceBuffer":{"JSObject":[]},"SpeechGrammar":{"JSObject":[]},"SpeechRecognitionResult":{"JSObject":[]},"StyleSheet":{"JSObject":[]},"TextTrack":{"JSObject":[]},"TextTrackCue":{"JSObject":[]},"Touch":{"JSObject":[]},"HtmlElement":{"Node":[],"JSObject":[]},"AccessibleNodeList":{"JSObject":[]},"AnchorElement":{"Node":[],"JSObject":[]},"AreaElement":{"Node":[],"JSObject":[]},"Blob":{"JSObject":[]},"CharacterData":{"Node":[],"JSObject":[]},"CssPerspective":{"JSObject":[]},"CssStyleDeclaration":{"JSObject":[]},"CssStyleValue":{"JSObject":[]},"CssTransformComponent":{"JSObject":[]},"CssTransformValue":{"JSObject":[]},"CssUnparsedValue":{"JSObject":[]},"DataTransferItemList":{"JSObject":[]},"DomException":{"JSObject":[]},"DomRectList":{"ListBase":["Rectangle<num>"],"ImmutableListMixin":["Rectangle<num>"],"List":["Rectangle<num>"],"JavaScriptIndexingBehavior":["Rectangle<num>"],"EfficientLengthIterable":["Rectangle<num>"],"JSObject":[],"Iterable":["Rectangle<num>"],"ImmutableListMixin.E":"Rectangle<num>","ListBase.E":"Rectangle<num>"},"DomRectReadOnly":{"Rectangle":["num"],"JSObject":[]},"DomStringList":{"ListBase":["String"],"ImmutableListMixin":["String"],"List":["String"],"JavaScriptIndexingBehavior":["String"],"EfficientLengthIterable":["String"],"JSObject":[],"Iterable":["String"],"ImmutableListMixin.E":"String","ListBase.E":"String"},"DomTokenList":{"JSObject":[]},"Element":{"Node":[],"JSObject":[]},"EventTarget":{"JSObject":[]},"FileList":{"ListBase":["File"],"ImmutableListMixin":["File"],"List":["File"],"JavaScriptIndexingBehavior":["File"],"EfficientLengthIterable":["File"],"JSObject":[],"Iterable":["File"],"ImmutableListMixin.E":"File","ListBase.E":"File"},"FileWriter":{"JSObject":[]},"FormElement":{"Node":[],"JSObject":[]},"History":{"JSObject":[]},"HtmlCollection":{"ListBase":["Node"],"ImmutableListMixin":["Node"],"List":["Node"],"JavaScriptIndexingBehavior":["Node"],"EfficientLengthIterable":["Node"],"JSObject":[],"Iterable":["Node"],"ImmutableListMixin.E":"Node","ListBase.E":"Node"},"Location":{"JSObject":[]},"MediaList":{"JSObject":[]},"MidiInputMap":{"MapBase":["String","@"],"JSObject":[],"Map":["String","@"],"MapBase.K":"String","MapBase.V":"@"},"MidiOutputMap":{"MapBase":["String","@"],"JSObject":[],"Map":["String","@"],"MapBase.K":"String","MapBase.V":"@"},"MimeTypeArray":{"ListBase":["MimeType"],"ImmutableListMixin":["MimeType"],"List":["MimeType"],"JavaScriptIndexingBehavior":["MimeType"],"EfficientLengthIterable":["MimeType"],"JSObject":[],"Iterable":["MimeType"],"ImmutableListMixin.E":"MimeType","ListBase.E":"MimeType"},"NodeList":{"ListBase":["Node"],"ImmutableListMixin":["Node"],"List":["Node"],"JavaScriptIndexingBehavior":["Node"],"EfficientLengthIterable":["Node"],"JSObject":[],"Iterable":["Node"],"ImmutableListMixin.E":"Node","ListBase.E":"Node"},"PluginArray":{"ListBase":["Plugin"],"ImmutableListMixin":["Plugin"],"List":["Plugin"],"JavaScriptIndexingBehavior":["Plugin"],"EfficientLengthIterable":["Plugin"],"JSObject":[],"Iterable":["Plugin"],"ImmutableListMixin.E":"Plugin","ListBase.E":"Plugin"},"RtcStatsReport":{"MapBase":["String","@"],"JSObject":[],"Map":["String","@"],"MapBase.K":"String","MapBase.V":"@"},"SelectElement":{"Node":[],"JSObject":[]},"SourceBufferList":{"ListBase":["SourceBuffer"],"ImmutableListMixin":["SourceBuffer"],"List":["SourceBuffer"],"JavaScriptIndexingBehavior":["SourceBuffer"],"EfficientLengthIterable":["SourceBuffer"],"JSObject":[],"Iterable":["SourceBuffer"],"ImmutableListMixin.E":"SourceBuffer","ListBase.E":"SourceBuffer"},"SpeechGrammarList":{"ListBase":["SpeechGrammar"],"ImmutableListMixin":["SpeechGrammar"],"List":["SpeechGrammar"],"JavaScriptIndexingBehavior":["SpeechGrammar"],"EfficientLengthIterable":["SpeechGrammar"],"JSObject":[],"Iterable":["SpeechGrammar"],"ImmutableListMixin.E":"SpeechGrammar","ListBase.E":"SpeechGrammar"},"Storage":{"MapBase":["String","String"],"JSObject":[],"Map":["String","String"],"MapBase.K":"String","MapBase.V":"String"},"TextTrackCueList":{"ListBase":["TextTrackCue"],"ImmutableListMixin":["TextTrackCue"],"List":["TextTrackCue"],"JavaScriptIndexingBehavior":["TextTrackCue"],"EfficientLengthIterable":["TextTrackCue"],"JSObject":[],"Iterable":["TextTrackCue"],"ImmutableListMixin.E":"TextTrackCue","ListBase.E":"TextTrackCue"},"TextTrackList":{"ListBase":["TextTrack"],"ImmutableListMixin":["TextTrack"],"List":["TextTrack"],"JavaScriptIndexingBehavior":["TextTrack"],"EfficientLengthIterable":["TextTrack"],"JSObject":[],"Iterable":["TextTrack"],"ImmutableListMixin.E":"TextTrack","ListBase.E":"TextTrack"},"TimeRanges":{"JSObject":[]},"TouchList":{"ListBase":["Touch"],"ImmutableListMixin":["Touch"],"List":["Touch"],"JavaScriptIndexingBehavior":["Touch"],"EfficientLengthIterable":["Touch"],"JSObject":[],"Iterable":["Touch"],"ImmutableListMixin.E":"Touch","ListBase.E":"Touch"},"TrackDefaultList":{"JSObject":[]},"Url":{"JSObject":[]},"VideoTrackList":{"JSObject":[]},"_CssRuleList":{"ListBase":["CssRule"],"ImmutableListMixin":["CssRule"],"List":["CssRule"],"JavaScriptIndexingBehavior":["CssRule"],"EfficientLengthIterable":["CssRule"],"JSObject":[],"Iterable":["CssRule"],"ImmutableListMixin.E":"CssRule","ListBase.E":"CssRule"},"_DomRect":{"Rectangle":["num"],"JSObject":[]},"_GamepadList":{"ListBase":["Gamepad?"],"ImmutableListMixin":["Gamepad?"],"List":["Gamepad?"],"JavaScriptIndexingBehavior":["Gamepad?"],"EfficientLengthIterable":["Gamepad?"],"JSObject":[],"Iterable":["Gamepad?"],"ImmutableListMixin.E":"Gamepad?","ListBase.E":"Gamepad?"},"_NamedNodeMap":{"ListBase":["Node"],"ImmutableListMixin":["Node"],"List":["Node"],"JavaScriptIndexingBehavior":["Node"],"EfficientLengthIterable":["Node"],"JSObject":[],"Iterable":["Node"],"ImmutableListMixin.E":"Node","ListBase.E":"Node"},"_SpeechRecognitionResultList":{"ListBase":["SpeechRecognitionResult"],"ImmutableListMixin":["SpeechRecognitionResult"],"List":["SpeechRecognitionResult"],"JavaScriptIndexingBehavior":["SpeechRecognitionResult"],"EfficientLengthIterable":["SpeechRecognitionResult"],"JSObject":[],"Iterable":["SpeechRecognitionResult"],"ImmutableListMixin.E":"SpeechRecognitionResult","ListBase.E":"SpeechRecognitionResult"},"_StyleSheetList":{"ListBase":["StyleSheet"],"ImmutableListMixin":["StyleSheet"],"List":["StyleSheet"],"JavaScriptIndexingBehavior":["StyleSheet"],"EfficientLengthIterable":["StyleSheet"],"JSObject":[],"Iterable":["StyleSheet"],"ImmutableListMixin.E":"StyleSheet","ListBase.E":"StyleSheet"},"FixedSizeListIterator":{"Iterator":["1"]},"Length":{"JSObject":[]},"Number":{"JSObject":[]},"Transform":{"JSObject":[]},"LengthList":{"ListBase":["Length"],"ImmutableListMixin":["Length"],"List":["Length"],"EfficientLengthIterable":["Length"],"JSObject":[],"Iterable":["Length"],"ImmutableListMixin.E":"Length","ListBase.E":"Length"},"NumberList":{"ListBase":["Number"],"ImmutableListMixin":["Number"],"List":["Number"],"EfficientLengthIterable":["Number"],"JSObject":[],"Iterable":["Number"],"ImmutableListMixin.E":"Number","ListBase.E":"Number"},"PointList":{"JSObject":[]},"StringList":{"ListBase":["String"],"ImmutableListMixin":["String"],"List":["String"],"EfficientLengthIterable":["String"],"JSObject":[],"Iterable":["String"],"ImmutableListMixin.E":"String","ListBase.E":"String"},"TransformList":{"ListBase":["Transform"],"ImmutableListMixin":["Transform"],"List":["Transform"],"EfficientLengthIterable":["Transform"],"JSObject":[],"Iterable":["Transform"],"ImmutableListMixin.E":"Transform","ListBase.E":"Transform"},"ByteData":{"TypedData":[]},"Int8List":{"List":["int"],"EfficientLengthIterable":["int"],"TypedData":[],"Iterable":["int"]},"Uint8List":{"List":["int"],"EfficientLengthIterable":["int"],"TypedData":[],"Iterable":["int"]},"Uint8ClampedList":{"List":["int"],"EfficientLengthIterable":["int"],"TypedData":[],"Iterable":["int"]},"Int16List":{"List":["int"],"EfficientLengthIterable":["int"],"TypedData":[],"Iterable":["int"]},"Uint16List":{"List":["int"],"EfficientLengthIterable":["int"],"TypedData":[],"Iterable":["int"]},"Int32List":{"List":["int"],"EfficientLengthIterable":["int"],"TypedData":[],"Iterable":["int"]},"Uint32List":{"List":["int"],"EfficientLengthIterable":["int"],"TypedData":[],"Iterable":["int"]},"Float32List":{"List":["double"],"EfficientLengthIterable":["double"],"TypedData":[],"Iterable":["double"]},"Float64List":{"List":["double"],"EfficientLengthIterable":["double"],"TypedData":[],"Iterable":["double"]},"AudioBuffer":{"JSObject":[]},"AudioParamMap":{"MapBase":["String","@"],"JSObject":[],"Map":["String","@"],"MapBase.K":"String","MapBase.V":"@"},"AudioTrackList":{"JSObject":[]},"BaseAudioContext":{"JSObject":[]},"OfflineAudioContext":{"JSObject":[]},"Archive":{"Iterable":["ArchiveFile"],"Iterable.E":"ArchiveFile"},"BaseMac":{"Mac":[]},"BaseDigest":{"Digest":[]},"MD4FamilyDigest":{"Digest":[]},"SHA1Digest":{"Digest":[]},"HMac":{"Mac":[]},"InputStream":{"InputStreamBase":[]},"OutputStream":{"OutputStreamBase":[]},"_DelegatingIterableBase":{"Iterable":["1"]},"DelegatingList":{"List":["1"],"_DelegatingIterableBase":["1"],"EfficientLengthIterable":["1"],"Iterable":["1"]},"NumericNumFormat":{"NumFormat":[]},"StandardNumericNumFormat":{"NumFormat":[]},"CustomNumericNumFormat":{"CustomNumFormat":[],"NumFormat":[]},"DateTimeNumFormat":{"NumFormat":[]},"StandardDateTimeNumFormat":{"NumFormat":[]},"CustomDateTimeNumFormat":{"CustomNumFormat":[],"NumFormat":[]},"TimeNumFormat":{"NumFormat":[]},"StandardTimeNumFormat":{"NumFormat":[]},"FormulaCellValue":{"CellValue":[]},"IntCellValue":{"CellValue":[]},"DoubleCellValue":{"CellValue":[]},"DateCellValue":{"CellValue":[]},"TextCellValue":{"CellValue":[]},"BoolCellValue":{"CellValue":[]},"TimeCellValue":{"CellValue":[]},"DateTimeCellValue":{"CellValue":[]},"_$ExcelServiceWorkerService":{"WorkerService":[]},"Failure":{"Result":["0&"],"Context":[]},"Result":{"Context":[]},"Success":{"Result":["1"],"Context":[]},"ReferenceParser":{"ResolvableParser":["1"],"Parser0":["1"]},"MatchesIterable":{"Iterable":["1"],"Iterable.E":"1"},"MatchesIterator":{"Iterator":["1"]},"FlattenParser":{"DelegateParser":["1","String"],"Parser0":["String"],"DelegateParser.T":"1"},"MapParser":{"DelegateParser":["1","2"],"Parser0":["2"],"DelegateParser.T":"1"},"TokenParser":{"DelegateParser":["1","Token<1>"],"Parser0":["Token<1>"],"DelegateParser.T":"1"},"SingleCharPredicate":{"CharacterPredicate":[]},"ConstantCharPredicate":{"CharacterPredicate":[]},"LookupCharPredicate":{"CharacterPredicate":[]},"NotCharacterPredicate":{"CharacterPredicate":[]},"RangeCharPredicate":{"CharacterPredicate":[]},"WhitespaceCharPredicate":{"CharacterPredicate":[]},"ChoiceParser":{"ListParser":["1","1"],"Parser0":["1"],"ListParser.R":"1"},"DelegateParser":{"Parser0":["2"]},"SequenceParser2":{"Parser0":["+(1,2)"]},"SequenceParser3":{"Parser0":["+(1,2,3)"]},"SequenceParser4":{"Parser0":["+(1,2,3,4)"]},"SequenceParser5":{"Parser0":["+(1,2,3,4,5)"]},"SequenceParser8":{"Parser0":["+(1,2,3,4,5,6,7,8)"]},"ListParser":{"Parser0":["2"]},"OptionalParser":{"DelegateParser":["1","1"],"Parser0":["1"],"DelegateParser.T":"1"},"SkipParser":{"DelegateParser":["1","1"],"Parser0":["1"],"DelegateParser.T":"1"},"EpsilonParser":{"Parser0":["1"]},"NewlineParser":{"Parser0":["String"]},"AnyCharacterParser":{"Parser0":["String"]},"SingleCharacterParser":{"Parser0":["String"]},"PredicateParser":{"Parser0":["String"]},"RepeatingCharacterParser":{"Parser0":["String"]},"LazyRepeatingParser":{"LimitedRepeatingParser":["1"],"RepeatingParser":["1","List<1>"],"DelegateParser":["1","List<1>"],"Parser0":["List<1>"],"DelegateParser.T":"1"},"LimitedRepeatingParser":{"RepeatingParser":["1","List<1>"],"DelegateParser":["1","List<1>"],"Parser0":["List<1>"]},"PossessiveRepeatingParser":{"RepeatingParser":["1","List<1>"],"DelegateParser":["1","List<1>"],"Parser0":["List<1>"],"DelegateParser.T":"1"},"RepeatingParser":{"DelegateParser":["1","2"],"Parser0":["2"]},"_WebWorkerChannel":{"WorkerChannel":[]},"InternalLogger":{"Logger":[]},"_NoLogOutput":{"LogOutput":[]},"_DummyPrinter":{"LogPrinter":[]},"_LogAllFilter":{"LogFilter":[]},"SquadronCanceledException":{"SquadronException":[],"CanceledException":[]},"SquadronCanceledExceptions":{"SquadronCanceledException":[],"SquadronException":[],"CanceledException":[]},"SquadronError":{"SquadronException":[]},"SquadronTimeoutException":{"SquadronCanceledException":[],"SquadronException":[],"CanceledException":[]},"WorkerException":{"SquadronException":[]},"CancelationTokenReference":{"SquadronCancelationToken":[],"CancelationToken":[]},"SquadronCancelationToken":{"CancelationToken":[]},"XmlDefaultEntityMapping":{"XmlEntityMapping":[]},"XmlDescendantsIterable":{"Iterable":["XmlNode"],"Iterable.E":"XmlNode"},"XmlDescendantsIterator":{"Iterator":["XmlNode"]},"XmlAttribute":{"XmlNode":[],"XmlHasParent":["XmlNode"],"XmlHasVisitor":[],"XmlParentBase":[],"XmlHasName":[],"XmlHasParent.T":"XmlNode"},"XmlCDATA":{"XmlNode":[],"XmlHasParent":["XmlNode"],"XmlHasVisitor":[],"XmlParentBase":[],"XmlHasParent.T":"XmlNode"},"XmlComment":{"XmlNode":[],"XmlHasParent":["XmlNode"],"XmlHasVisitor":[],"XmlParentBase":[],"XmlHasParent.T":"XmlNode"},"XmlData":{"XmlNode":[],"XmlHasParent":["XmlNode"],"XmlHasVisitor":[],"XmlParentBase":[]},"XmlDeclaration":{"XmlHasAttributes":[],"XmlNode":[],"XmlHasParent":["XmlNode"],"XmlHasVisitor":[],"XmlParentBase":[],"XmlHasParent.T":"XmlNode"},"XmlDoctype":{"XmlNode":[],"XmlHasParent":["XmlNode"],"XmlHasVisitor":[],"XmlParentBase":[],"XmlHasParent.T":"XmlNode"},"XmlDocument":{"XmlNode":[],"XmlHasChildren":["XmlNode"],"XmlHasVisitor":[],"XmlParentBase":[],"XmlHasChildren.T":"XmlNode"},"XmlElement":{"XmlHasAttributes":[],"XmlNode":[],"XmlHasParent":["XmlNode"],"XmlHasChildren":["XmlNode"],"XmlHasVisitor":[],"XmlParentBase":[],"XmlHasName":[],"XmlHasChildren.T":"XmlNode","XmlHasParent.T":"XmlNode"},"XmlNode":{"XmlHasVisitor":[],"XmlParentBase":[]},"XmlProcessing":{"XmlNode":[],"XmlHasParent":["XmlNode"],"XmlHasVisitor":[],"XmlParentBase":[],"XmlHasParent.T":"XmlNode"},"XmlText":{"XmlNode":[],"XmlHasParent":["XmlNode"],"XmlHasVisitor":[],"XmlParentBase":[],"XmlHasParent.T":"XmlNode"},"XmlCharacterDataParser":{"Parser0":["String"]},"XmlName":{"XmlHasParent":["XmlNode"],"XmlHasVisitor":[],"XmlParentBase":[]},"XmlNodeList":{"DelegatingList":["1"],"List":["1"],"_DelegatingIterableBase":["1"],"EfficientLengthIterable":["1"],"Iterable":["1"]},"XmlPrefixName":{"XmlName":[],"XmlHasParent":["XmlNode"],"XmlHasVisitor":[],"XmlParentBase":[],"XmlHasParent.T":"XmlNode"},"XmlSimpleName":{"XmlName":[],"XmlHasParent":["XmlNode"],"XmlHasVisitor":[],"XmlParentBase":[],"XmlHasParent.T":"XmlNode"},"XmlWriter":{"XmlVisitor":[]},"_XmlEventEncoderSink":{"XmlEventVisitor":[],"Sink":["List<XmlEvent>"]},"_XmlNodeDecoderSink":{"XmlEventVisitor":[],"Sink":["List<XmlEvent>"]},"XmlCDATAEvent":{"XmlEvent":[]},"XmlCommentEvent":{"XmlEvent":[]},"XmlDeclarationEvent":{"XmlEvent":[]},"XmlDoctypeEvent":{"XmlEvent":[]},"XmlEndElementEvent":{"XmlEvent":[]},"XmlProcessingEvent":{"XmlEvent":[]},"XmlStartElementEvent":{"XmlEvent":[]},"XmlTextEvent":{"XmlEvent":[]},"XmlRawTextEvent":{"XmlTextEvent":[],"XmlEvent":[]},"XmlEventIterable":{"Iterable":["XmlEvent"],"Iterable.E":"XmlEvent"},"XmlEventIterator":{"Iterator":["XmlEvent"]},"ConversionSink":{"Sink":["1"]},"ResolvableParser":{"Parser0":["1"]}}'));
+  A._Universe_addRules(init.typeUniverse, JSON.parse('{"JavaScriptFunction":"LegacyJavaScriptObject","PlainJavaScriptObject":"LegacyJavaScriptObject","UnknownJavaScriptObject":"LegacyJavaScriptObject","AbortPaymentEvent":"JavaScriptObject","ExtendableEvent":"JavaScriptObject","Event":"JavaScriptObject","AudioContext":"BaseAudioContext","AbsoluteOrientationSensor":"EventTarget","OrientationSensor":"EventTarget","Sensor":"EventTarget","MathMLElement":"Element","AudioElement":"HtmlElement","MediaElement":"HtmlElement","HtmlDocument":"Node","Document":"Node","VttCue":"TextTrackCue","CDataSection":"CharacterData","Text":"CharacterData","HtmlFormControlsCollection":"HtmlCollection","CssCharsetRule":"CssRule","CssMatrixComponent":"CssTransformComponent","CssStyleSheet":"StyleSheet","CssurlImageValue":"CssStyleValue","CssImageValue":"CssStyleValue","CssResourceValue":"CssStyleValue","JSArray":{"List":["1"],"EfficientLengthIterable":["1"],"JSObject":[],"Iterable":["1"]},"JSBool":{"bool":[],"TrustedGetRuntimeType":[]},"JSNull":{"Null":[],"TrustedGetRuntimeType":[]},"JavaScriptObject":{"JSObject":[]},"LegacyJavaScriptObject":{"JSObject":[]},"JSUnmodifiableArray":{"JSArray":["1"],"List":["1"],"EfficientLengthIterable":["1"],"JSObject":[],"Iterable":["1"]},"ArrayIterator":{"Iterator":["1"]},"JSNumber":{"double":[],"num":[],"Comparable":["num"]},"JSInt":{"double":[],"int":[],"num":[],"Comparable":["num"],"TrustedGetRuntimeType":[]},"JSNumNotInt":{"double":[],"num":[],"Comparable":["num"],"TrustedGetRuntimeType":[]},"JSString":{"String":[],"Comparable":["String"],"Pattern":[],"TrustedGetRuntimeType":[]},"_CastIterableBase":{"Iterable":["2"]},"CastIterator":{"Iterator":["2"]},"CastIterable":{"_CastIterableBase":["1","2"],"Iterable":["2"],"Iterable.E":"2"},"_EfficientLengthCastIterable":{"CastIterable":["1","2"],"_CastIterableBase":["1","2"],"EfficientLengthIterable":["2"],"Iterable":["2"],"Iterable.E":"2"},"_CastListBase":{"ListBase":["2"],"List":["2"],"_CastIterableBase":["1","2"],"EfficientLengthIterable":["2"],"Iterable":["2"]},"CastList":{"_CastListBase":["1","2"],"ListBase":["2"],"List":["2"],"_CastIterableBase":["1","2"],"EfficientLengthIterable":["2"],"Iterable":["2"],"ListBase.E":"2","Iterable.E":"2"},"LateError":{"Error":[]},"ReachabilityError":{"Error":[]},"CodeUnits":{"ListBase":["int"],"UnmodifiableListMixin":["int"],"List":["int"],"EfficientLengthIterable":["int"],"Iterable":["int"],"ListBase.E":"int","UnmodifiableListMixin.E":"int"},"EfficientLengthIterable":{"Iterable":["1"]},"ListIterable":{"EfficientLengthIterable":["1"],"Iterable":["1"]},"SubListIterable":{"ListIterable":["1"],"EfficientLengthIterable":["1"],"Iterable":["1"],"Iterable.E":"1","ListIterable.E":"1"},"ListIterator":{"Iterator":["1"]},"MappedIterable":{"Iterable":["2"],"Iterable.E":"2"},"EfficientLengthMappedIterable":{"MappedIterable":["1","2"],"EfficientLengthIterable":["2"],"Iterable":["2"],"Iterable.E":"2"},"MappedIterator":{"Iterator":["2"]},"MappedListIterable":{"ListIterable":["2"],"EfficientLengthIterable":["2"],"Iterable":["2"],"Iterable.E":"2","ListIterable.E":"2"},"WhereIterable":{"Iterable":["1"],"Iterable.E":"1"},"WhereIterator":{"Iterator":["1"]},"SkipIterable":{"Iterable":["1"],"Iterable.E":"1"},"EfficientLengthSkipIterable":{"SkipIterable":["1"],"EfficientLengthIterable":["1"],"Iterable":["1"],"Iterable.E":"1"},"SkipIterator":{"Iterator":["1"]},"EmptyIterable":{"EfficientLengthIterable":["1"],"Iterable":["1"],"Iterable.E":"1"},"EmptyIterator":{"Iterator":["1"]},"WhereTypeIterable":{"Iterable":["1"],"Iterable.E":"1"},"WhereTypeIterator":{"Iterator":["1"]},"UnmodifiableListBase":{"ListBase":["1"],"UnmodifiableListMixin":["1"],"List":["1"],"EfficientLengthIterable":["1"],"Iterable":["1"]},"_ListIndicesIterable":{"ListIterable":["int"],"EfficientLengthIterable":["int"],"Iterable":["int"],"Iterable.E":"int","ListIterable.E":"int"},"ListMapView":{"MapBase":["int","1"],"_UnmodifiableMapMixin":["int","1"],"Map":["int","1"],"MapBase.K":"int","MapBase.V":"1"},"ReversedListIterable":{"ListIterable":["1"],"EfficientLengthIterable":["1"],"Iterable":["1"],"Iterable.E":"1","ListIterable.E":"1"},"Symbol":{"Symbol0":[]},"_Record_2":{"_Record2":[],"_Record":[]},"_Record_3":{"_Record3":[],"_Record":[]},"_Record_4":{"_RecordN":[],"_Record":[]},"_Record_5":{"_RecordN":[],"_Record":[]},"_Record_8":{"_RecordN":[],"_Record":[]},"ConstantMapView":{"UnmodifiableMapView":["1","2"],"_UnmodifiableMapView_MapView__UnmodifiableMapMixin":["1","2"],"MapView":["1","2"],"_UnmodifiableMapMixin":["1","2"],"Map":["1","2"]},"ConstantMap":{"Map":["1","2"]},"ConstantStringMap":{"ConstantMap":["1","2"],"Map":["1","2"]},"_KeysOrValues":{"Iterable":["1"],"Iterable.E":"1"},"_KeysOrValuesOrElementsIterator":{"Iterator":["1"]},"GeneralConstantMap":{"ConstantMap":["1","2"],"Map":["1","2"]},"ConstantSet":{"SetBase":["1"],"Set":["1"],"EfficientLengthIterable":["1"],"Iterable":["1"]},"GeneralConstantSet":{"ConstantSet":["1"],"SetBase":["1"],"Set":["1"],"EfficientLengthIterable":["1"],"Iterable":["1"]},"Instantiation":{"Closure":[],"Function":[]},"Instantiation1":{"Closure":[],"Function":[]},"JSInvocationMirror":{"Invocation":[]},"NullError":{"TypeError":[],"Error":[]},"JsNoSuchMethodError":{"Error":[]},"UnknownJsTypeError":{"Error":[]},"_StackTrace":{"StackTrace":[]},"Closure":{"Function":[]},"Closure0Args":{"Closure":[],"Function":[]},"Closure2Args":{"Closure":[],"Function":[]},"TearOffClosure":{"Closure":[],"Function":[]},"StaticClosure":{"Closure":[],"Function":[]},"BoundClosure":{"Closure":[],"Function":[]},"_CyclicInitializationError":{"Error":[]},"RuntimeError":{"Error":[]},"_AssertionError":{"Error":[]},"JsLinkedHashMap":{"MapBase":["1","2"],"LinkedHashMap":["1","2"],"Map":["1","2"],"MapBase.K":"1","MapBase.V":"2"},"LinkedHashMapKeyIterable":{"EfficientLengthIterable":["1"],"Iterable":["1"],"Iterable.E":"1"},"LinkedHashMapKeyIterator":{"Iterator":["1"]},"JsConstantLinkedHashMap":{"JsLinkedHashMap":["1","2"],"MapBase":["1","2"],"LinkedHashMap":["1","2"],"Map":["1","2"],"MapBase.K":"1","MapBase.V":"2"},"_Record2":{"_Record":[]},"_Record3":{"_Record":[]},"_RecordN":{"_Record":[]},"JSSyntaxRegExp":{"RegExp":[],"Pattern":[]},"_MatchImplementation":{"RegExpMatch":[],"Match":[]},"_AllMatchesIterable":{"Iterable":["RegExpMatch"],"Iterable.E":"RegExpMatch"},"_AllMatchesIterator":{"Iterator":["RegExpMatch"]},"StringMatch":{"Match":[]},"_StringAllMatchesIterable":{"Iterable":["Match"],"Iterable.E":"Match"},"_StringAllMatchesIterator":{"Iterator":["Match"]},"NativeByteBuffer":{"JSObject":[],"ByteBuffer":[],"TrustedGetRuntimeType":[]},"NativeTypedData":{"JSObject":[],"TypedData":[]},"_UnmodifiableNativeByteBufferView":{"ByteBuffer":[]},"NativeByteData":{"NativeTypedData":[],"ByteData":[],"JSObject":[],"TypedData":[],"TrustedGetRuntimeType":[]},"NativeTypedArray":{"NativeTypedData":[],"JavaScriptIndexingBehavior":["1"],"JSObject":[],"TypedData":[]},"NativeTypedArrayOfDouble":{"ListBase":["double"],"NativeTypedArray":["double"],"List":["double"],"NativeTypedData":[],"JavaScriptIndexingBehavior":["double"],"EfficientLengthIterable":["double"],"JSObject":[],"TypedData":[],"Iterable":["double"],"FixedLengthListMixin":["double"]},"NativeTypedArrayOfInt":{"ListBase":["int"],"NativeTypedArray":["int"],"List":["int"],"NativeTypedData":[],"JavaScriptIndexingBehavior":["int"],"EfficientLengthIterable":["int"],"JSObject":[],"TypedData":[],"Iterable":["int"],"FixedLengthListMixin":["int"]},"NativeFloat32List":{"Float32List":[],"ListBase":["double"],"NativeTypedArray":["double"],"List":["double"],"NativeTypedData":[],"JavaScriptIndexingBehavior":["double"],"EfficientLengthIterable":["double"],"JSObject":[],"TypedData":[],"Iterable":["double"],"FixedLengthListMixin":["double"],"TrustedGetRuntimeType":[],"ListBase.E":"double"},"NativeFloat64List":{"Float64List":[],"ListBase":["double"],"NativeTypedArray":["double"],"List":["double"],"NativeTypedData":[],"JavaScriptIndexingBehavior":["double"],"EfficientLengthIterable":["double"],"JSObject":[],"TypedData":[],"Iterable":["double"],"FixedLengthListMixin":["double"],"TrustedGetRuntimeType":[],"ListBase.E":"double"},"NativeInt16List":{"NativeTypedArrayOfInt":[],"Int16List":[],"ListBase":["int"],"NativeTypedArray":["int"],"List":["int"],"NativeTypedData":[],"JavaScriptIndexingBehavior":["int"],"EfficientLengthIterable":["int"],"JSObject":[],"TypedData":[],"Iterable":["int"],"FixedLengthListMixin":["int"],"TrustedGetRuntimeType":[],"ListBase.E":"int"},"NativeInt32List":{"NativeTypedArrayOfInt":[],"Int32List":[],"ListBase":["int"],"NativeTypedArray":["int"],"List":["int"],"NativeTypedData":[],"JavaScriptIndexingBehavior":["int"],"EfficientLengthIterable":["int"],"JSObject":[],"TypedData":[],"Iterable":["int"],"FixedLengthListMixin":["int"],"TrustedGetRuntimeType":[],"ListBase.E":"int"},"NativeInt8List":{"NativeTypedArrayOfInt":[],"Int8List":[],"ListBase":["int"],"NativeTypedArray":["int"],"List":["int"],"NativeTypedData":[],"JavaScriptIndexingBehavior":["int"],"EfficientLengthIterable":["int"],"JSObject":[],"TypedData":[],"Iterable":["int"],"FixedLengthListMixin":["int"],"TrustedGetRuntimeType":[],"ListBase.E":"int"},"NativeUint16List":{"NativeTypedArrayOfInt":[],"Uint16List":[],"ListBase":["int"],"NativeTypedArray":["int"],"List":["int"],"NativeTypedData":[],"JavaScriptIndexingBehavior":["int"],"EfficientLengthIterable":["int"],"JSObject":[],"TypedData":[],"Iterable":["int"],"FixedLengthListMixin":["int"],"TrustedGetRuntimeType":[],"ListBase.E":"int"},"NativeUint32List":{"NativeTypedArrayOfInt":[],"Uint32List":[],"ListBase":["int"],"NativeTypedArray":["int"],"List":["int"],"NativeTypedData":[],"JavaScriptIndexingBehavior":["int"],"EfficientLengthIterable":["int"],"JSObject":[],"TypedData":[],"Iterable":["int"],"FixedLengthListMixin":["int"],"TrustedGetRuntimeType":[],"ListBase.E":"int"},"NativeUint8ClampedList":{"NativeTypedArrayOfInt":[],"Uint8ClampedList":[],"ListBase":["int"],"NativeTypedArray":["int"],"List":["int"],"NativeTypedData":[],"JavaScriptIndexingBehavior":["int"],"EfficientLengthIterable":["int"],"JSObject":[],"TypedData":[],"Iterable":["int"],"FixedLengthListMixin":["int"],"TrustedGetRuntimeType":[],"ListBase.E":"int"},"NativeUint8List":{"NativeTypedArrayOfInt":[],"Uint8List":[],"ListBase":["int"],"NativeTypedArray":["int"],"List":["int"],"NativeTypedData":[],"JavaScriptIndexingBehavior":["int"],"EfficientLengthIterable":["int"],"JSObject":[],"TypedData":[],"Iterable":["int"],"FixedLengthListMixin":["int"],"TrustedGetRuntimeType":[],"ListBase.E":"int"},"_Error":{"Error":[]},"_TypeError":{"TypeError":[],"Error":[]},"_Future":{"Future":["1"]},"_AsyncAwaitCompleter":{"Completer":["1"]},"_SyncStarIterator":{"Iterator":["1"]},"_SyncStarIterable":{"Iterable":["1"],"Iterable.E":"1"},"AsyncError":{"Error":[]},"_Completer":{"Completer":["1"]},"_AsyncCompleter":{"_Completer":["1"],"Completer":["1"]},"_Zone":{"Zone":[]},"_RootZone":{"_Zone":[],"Zone":[]},"_HashMap":{"MapBase":["1","2"],"Map":["1","2"]},"_IdentityHashMap":{"_HashMap":["1","2"],"MapBase":["1","2"],"Map":["1","2"],"MapBase.K":"1","MapBase.V":"2"},"_HashMapKeyIterable":{"EfficientLengthIterable":["1"],"Iterable":["1"],"Iterable.E":"1"},"_HashMapKeyIterator":{"Iterator":["1"]},"_LinkedHashSet":{"_SetBase":["1"],"SetBase":["1"],"LinkedHashSet":["1"],"Set":["1"],"EfficientLengthIterable":["1"],"Iterable":["1"]},"_LinkedHashSetIterator":{"Iterator":["1"]},"ListBase":{"List":["1"],"EfficientLengthIterable":["1"],"Iterable":["1"]},"MapBase":{"Map":["1","2"]},"UnmodifiableMapBase":{"MapBase":["1","2"],"_UnmodifiableMapMixin":["1","2"],"Map":["1","2"]},"MapView":{"Map":["1","2"]},"UnmodifiableMapView":{"_UnmodifiableMapView_MapView__UnmodifiableMapMixin":["1","2"],"MapView":["1","2"],"_UnmodifiableMapMixin":["1","2"],"Map":["1","2"]},"SetBase":{"Set":["1"],"EfficientLengthIterable":["1"],"Iterable":["1"]},"_SetBase":{"SetBase":["1"],"Set":["1"],"EfficientLengthIterable":["1"],"Iterable":["1"]},"Encoding":{"Codec":["String","List<int>"]},"JsonUnsupportedObjectError":{"Error":[]},"JsonCyclicError":{"Error":[]},"JsonCodec":{"Codec":["Object?","String"]},"JsonEncoder":{"Converter":["Object?","String"]},"Utf8Codec":{"Codec":["String","List<int>"]},"Utf8Encoder":{"Converter":["String","List<int>"]},"Utf8Decoder":{"Converter":["List<int>","String"]},"BigInt":{"Comparable":["BigInt"]},"DateTime":{"Comparable":["DateTime"]},"double":{"num":[],"Comparable":["num"]},"Duration":{"Comparable":["Duration"]},"int":{"num":[],"Comparable":["num"]},"List":{"EfficientLengthIterable":["1"],"Iterable":["1"]},"num":{"Comparable":["num"]},"RegExpMatch":{"Match":[]},"String":{"Comparable":["String"],"Pattern":[]},"_BigIntImpl":{"Comparable":["BigInt"]},"AssertionError":{"Error":[]},"TypeError":{"Error":[]},"ArgumentError":{"Error":[]},"RangeError":{"Error":[]},"IndexError":{"Error":[]},"NoSuchMethodError":{"Error":[]},"UnsupportedError":{"Error":[]},"UnimplementedError":{"Error":[]},"StateError":{"Error":[]},"ConcurrentModificationError":{"Error":[]},"OutOfMemoryError":{"Error":[]},"StackOverflowError":{"Error":[]},"IntegerDivisionByZeroException":{"Error":[]},"_StringStackTrace":{"StackTrace":[]},"Runes":{"Iterable":["int"],"Iterable.E":"int"},"RuneIterator":{"Iterator":["int"]},"StringBuffer":{"StringSink":[]},"CssRule":{"JSObject":[]},"File":{"JSObject":[]},"Gamepad":{"JSObject":[]},"MimeType":{"JSObject":[]},"Node":{"JSObject":[]},"Plugin":{"JSObject":[]},"SourceBuffer":{"JSObject":[]},"SpeechGrammar":{"JSObject":[]},"SpeechRecognitionResult":{"JSObject":[]},"StyleSheet":{"JSObject":[]},"TextTrack":{"JSObject":[]},"TextTrackCue":{"JSObject":[]},"Touch":{"JSObject":[]},"HtmlElement":{"Node":[],"JSObject":[]},"AccessibleNodeList":{"JSObject":[]},"AnchorElement":{"Node":[],"JSObject":[]},"AreaElement":{"Node":[],"JSObject":[]},"Blob":{"JSObject":[]},"CharacterData":{"Node":[],"JSObject":[]},"CssPerspective":{"JSObject":[]},"CssStyleDeclaration":{"JSObject":[]},"CssStyleValue":{"JSObject":[]},"CssTransformComponent":{"JSObject":[]},"CssTransformValue":{"JSObject":[]},"CssUnparsedValue":{"JSObject":[]},"DataTransferItemList":{"JSObject":[]},"DomException":{"JSObject":[]},"DomRectList":{"ListBase":["Rectangle<num>"],"ImmutableListMixin":["Rectangle<num>"],"List":["Rectangle<num>"],"JavaScriptIndexingBehavior":["Rectangle<num>"],"EfficientLengthIterable":["Rectangle<num>"],"JSObject":[],"Iterable":["Rectangle<num>"],"ImmutableListMixin.E":"Rectangle<num>","ListBase.E":"Rectangle<num>"},"DomRectReadOnly":{"Rectangle":["num"],"JSObject":[]},"DomStringList":{"ListBase":["String"],"ImmutableListMixin":["String"],"List":["String"],"JavaScriptIndexingBehavior":["String"],"EfficientLengthIterable":["String"],"JSObject":[],"Iterable":["String"],"ImmutableListMixin.E":"String","ListBase.E":"String"},"DomTokenList":{"JSObject":[]},"Element":{"Node":[],"JSObject":[]},"EventTarget":{"JSObject":[]},"FileList":{"ListBase":["File"],"ImmutableListMixin":["File"],"List":["File"],"JavaScriptIndexingBehavior":["File"],"EfficientLengthIterable":["File"],"JSObject":[],"Iterable":["File"],"ImmutableListMixin.E":"File","ListBase.E":"File"},"FileWriter":{"JSObject":[]},"FormElement":{"Node":[],"JSObject":[]},"History":{"JSObject":[]},"HtmlCollection":{"ListBase":["Node"],"ImmutableListMixin":["Node"],"List":["Node"],"JavaScriptIndexingBehavior":["Node"],"EfficientLengthIterable":["Node"],"JSObject":[],"Iterable":["Node"],"ImmutableListMixin.E":"Node","ListBase.E":"Node"},"Location":{"JSObject":[]},"MediaList":{"JSObject":[]},"MidiInputMap":{"MapBase":["String","@"],"JSObject":[],"Map":["String","@"],"MapBase.K":"String","MapBase.V":"@"},"MidiOutputMap":{"MapBase":["String","@"],"JSObject":[],"Map":["String","@"],"MapBase.K":"String","MapBase.V":"@"},"MimeTypeArray":{"ListBase":["MimeType"],"ImmutableListMixin":["MimeType"],"List":["MimeType"],"JavaScriptIndexingBehavior":["MimeType"],"EfficientLengthIterable":["MimeType"],"JSObject":[],"Iterable":["MimeType"],"ImmutableListMixin.E":"MimeType","ListBase.E":"MimeType"},"NodeList":{"ListBase":["Node"],"ImmutableListMixin":["Node"],"List":["Node"],"JavaScriptIndexingBehavior":["Node"],"EfficientLengthIterable":["Node"],"JSObject":[],"Iterable":["Node"],"ImmutableListMixin.E":"Node","ListBase.E":"Node"},"PluginArray":{"ListBase":["Plugin"],"ImmutableListMixin":["Plugin"],"List":["Plugin"],"JavaScriptIndexingBehavior":["Plugin"],"EfficientLengthIterable":["Plugin"],"JSObject":[],"Iterable":["Plugin"],"ImmutableListMixin.E":"Plugin","ListBase.E":"Plugin"},"RtcStatsReport":{"MapBase":["String","@"],"JSObject":[],"Map":["String","@"],"MapBase.K":"String","MapBase.V":"@"},"SelectElement":{"Node":[],"JSObject":[]},"SourceBufferList":{"ListBase":["SourceBuffer"],"ImmutableListMixin":["SourceBuffer"],"List":["SourceBuffer"],"JavaScriptIndexingBehavior":["SourceBuffer"],"EfficientLengthIterable":["SourceBuffer"],"JSObject":[],"Iterable":["SourceBuffer"],"ImmutableListMixin.E":"SourceBuffer","ListBase.E":"SourceBuffer"},"SpeechGrammarList":{"ListBase":["SpeechGrammar"],"ImmutableListMixin":["SpeechGrammar"],"List":["SpeechGrammar"],"JavaScriptIndexingBehavior":["SpeechGrammar"],"EfficientLengthIterable":["SpeechGrammar"],"JSObject":[],"Iterable":["SpeechGrammar"],"ImmutableListMixin.E":"SpeechGrammar","ListBase.E":"SpeechGrammar"},"Storage":{"MapBase":["String","String"],"JSObject":[],"Map":["String","String"],"MapBase.K":"String","MapBase.V":"String"},"TextTrackCueList":{"ListBase":["TextTrackCue"],"ImmutableListMixin":["TextTrackCue"],"List":["TextTrackCue"],"JavaScriptIndexingBehavior":["TextTrackCue"],"EfficientLengthIterable":["TextTrackCue"],"JSObject":[],"Iterable":["TextTrackCue"],"ImmutableListMixin.E":"TextTrackCue","ListBase.E":"TextTrackCue"},"TextTrackList":{"ListBase":["TextTrack"],"ImmutableListMixin":["TextTrack"],"List":["TextTrack"],"JavaScriptIndexingBehavior":["TextTrack"],"EfficientLengthIterable":["TextTrack"],"JSObject":[],"Iterable":["TextTrack"],"ImmutableListMixin.E":"TextTrack","ListBase.E":"TextTrack"},"TimeRanges":{"JSObject":[]},"TouchList":{"ListBase":["Touch"],"ImmutableListMixin":["Touch"],"List":["Touch"],"JavaScriptIndexingBehavior":["Touch"],"EfficientLengthIterable":["Touch"],"JSObject":[],"Iterable":["Touch"],"ImmutableListMixin.E":"Touch","ListBase.E":"Touch"},"TrackDefaultList":{"JSObject":[]},"Url":{"JSObject":[]},"VideoTrackList":{"JSObject":[]},"_CssRuleList":{"ListBase":["CssRule"],"ImmutableListMixin":["CssRule"],"List":["CssRule"],"JavaScriptIndexingBehavior":["CssRule"],"EfficientLengthIterable":["CssRule"],"JSObject":[],"Iterable":["CssRule"],"ImmutableListMixin.E":"CssRule","ListBase.E":"CssRule"},"_DomRect":{"Rectangle":["num"],"JSObject":[]},"_GamepadList":{"ListBase":["Gamepad?"],"ImmutableListMixin":["Gamepad?"],"List":["Gamepad?"],"JavaScriptIndexingBehavior":["Gamepad?"],"EfficientLengthIterable":["Gamepad?"],"JSObject":[],"Iterable":["Gamepad?"],"ImmutableListMixin.E":"Gamepad?","ListBase.E":"Gamepad?"},"_NamedNodeMap":{"ListBase":["Node"],"ImmutableListMixin":["Node"],"List":["Node"],"JavaScriptIndexingBehavior":["Node"],"EfficientLengthIterable":["Node"],"JSObject":[],"Iterable":["Node"],"ImmutableListMixin.E":"Node","ListBase.E":"Node"},"_SpeechRecognitionResultList":{"ListBase":["SpeechRecognitionResult"],"ImmutableListMixin":["SpeechRecognitionResult"],"List":["SpeechRecognitionResult"],"JavaScriptIndexingBehavior":["SpeechRecognitionResult"],"EfficientLengthIterable":["SpeechRecognitionResult"],"JSObject":[],"Iterable":["SpeechRecognitionResult"],"ImmutableListMixin.E":"SpeechRecognitionResult","ListBase.E":"SpeechRecognitionResult"},"_StyleSheetList":{"ListBase":["StyleSheet"],"ImmutableListMixin":["StyleSheet"],"List":["StyleSheet"],"JavaScriptIndexingBehavior":["StyleSheet"],"EfficientLengthIterable":["StyleSheet"],"JSObject":[],"Iterable":["StyleSheet"],"ImmutableListMixin.E":"StyleSheet","ListBase.E":"StyleSheet"},"FixedSizeListIterator":{"Iterator":["1"]},"Length":{"JSObject":[]},"Number":{"JSObject":[]},"Transform":{"JSObject":[]},"LengthList":{"ListBase":["Length"],"ImmutableListMixin":["Length"],"List":["Length"],"EfficientLengthIterable":["Length"],"JSObject":[],"Iterable":["Length"],"ImmutableListMixin.E":"Length","ListBase.E":"Length"},"NumberList":{"ListBase":["Number"],"ImmutableListMixin":["Number"],"List":["Number"],"EfficientLengthIterable":["Number"],"JSObject":[],"Iterable":["Number"],"ImmutableListMixin.E":"Number","ListBase.E":"Number"},"PointList":{"JSObject":[]},"StringList":{"ListBase":["String"],"ImmutableListMixin":["String"],"List":["String"],"EfficientLengthIterable":["String"],"JSObject":[],"Iterable":["String"],"ImmutableListMixin.E":"String","ListBase.E":"String"},"TransformList":{"ListBase":["Transform"],"ImmutableListMixin":["Transform"],"List":["Transform"],"EfficientLengthIterable":["Transform"],"JSObject":[],"Iterable":["Transform"],"ImmutableListMixin.E":"Transform","ListBase.E":"Transform"},"ByteData":{"TypedData":[]},"Int8List":{"List":["int"],"EfficientLengthIterable":["int"],"TypedData":[],"Iterable":["int"]},"Uint8List":{"List":["int"],"EfficientLengthIterable":["int"],"TypedData":[],"Iterable":["int"]},"Uint8ClampedList":{"List":["int"],"EfficientLengthIterable":["int"],"TypedData":[],"Iterable":["int"]},"Int16List":{"List":["int"],"EfficientLengthIterable":["int"],"TypedData":[],"Iterable":["int"]},"Uint16List":{"List":["int"],"EfficientLengthIterable":["int"],"TypedData":[],"Iterable":["int"]},"Int32List":{"List":["int"],"EfficientLengthIterable":["int"],"TypedData":[],"Iterable":["int"]},"Uint32List":{"List":["int"],"EfficientLengthIterable":["int"],"TypedData":[],"Iterable":["int"]},"Float32List":{"List":["double"],"EfficientLengthIterable":["double"],"TypedData":[],"Iterable":["double"]},"Float64List":{"List":["double"],"EfficientLengthIterable":["double"],"TypedData":[],"Iterable":["double"]},"AudioBuffer":{"JSObject":[]},"AudioParamMap":{"MapBase":["String","@"],"JSObject":[],"Map":["String","@"],"MapBase.K":"String","MapBase.V":"@"},"AudioTrackList":{"JSObject":[]},"BaseAudioContext":{"JSObject":[]},"OfflineAudioContext":{"JSObject":[]},"Archive":{"Iterable":["ArchiveFile"],"Iterable.E":"ArchiveFile"},"BaseMac":{"Mac":[]},"BaseDigest":{"Digest":[]},"MD4FamilyDigest":{"Digest":[]},"SHA1Digest":{"Digest":[]},"HMac":{"Mac":[]},"InputStream":{"InputStreamBase":[]},"OutputStream":{"OutputStreamBase":[]},"_DelegatingIterableBase":{"Iterable":["1"]},"DelegatingList":{"List":["1"],"_DelegatingIterableBase":["1"],"EfficientLengthIterable":["1"],"Iterable":["1"]},"NumericNumFormat":{"NumFormat":[]},"StandardNumericNumFormat":{"NumFormat":[]},"CustomNumericNumFormat":{"CustomNumFormat":[],"NumFormat":[]},"DateTimeNumFormat":{"NumFormat":[]},"StandardDateTimeNumFormat":{"NumFormat":[]},"CustomDateTimeNumFormat":{"CustomNumFormat":[],"NumFormat":[]},"TimeNumFormat":{"NumFormat":[]},"StandardTimeNumFormat":{"NumFormat":[]},"FormulaCellValue":{"CellValue":[]},"IntCellValue":{"CellValue":[]},"DoubleCellValue":{"CellValue":[]},"DateCellValue":{"CellValue":[]},"TextCellValue":{"CellValue":[]},"BoolCellValue":{"CellValue":[]},"TimeCellValue":{"CellValue":[]},"DateTimeCellValue":{"CellValue":[]},"_$ExcelFileRepositoryWorkerService":{"WorkerService":[]},"Failure":{"Result":["0&"],"Context":[]},"Result":{"Context":[]},"Success":{"Result":["1"],"Context":[]},"ReferenceParser":{"ResolvableParser":["1"],"Parser0":["1"]},"MatchesIterable":{"Iterable":["1"],"Iterable.E":"1"},"MatchesIterator":{"Iterator":["1"]},"FlattenParser":{"DelegateParser":["1","String"],"Parser0":["String"],"DelegateParser.T":"1"},"MapParser":{"DelegateParser":["1","2"],"Parser0":["2"],"DelegateParser.T":"1"},"TokenParser":{"DelegateParser":["1","Token<1>"],"Parser0":["Token<1>"],"DelegateParser.T":"1"},"SingleCharPredicate":{"CharacterPredicate":[]},"ConstantCharPredicate":{"CharacterPredicate":[]},"LookupCharPredicate":{"CharacterPredicate":[]},"NotCharacterPredicate":{"CharacterPredicate":[]},"RangeCharPredicate":{"CharacterPredicate":[]},"WhitespaceCharPredicate":{"CharacterPredicate":[]},"ChoiceParser":{"ListParser":["1","1"],"Parser0":["1"],"ListParser.R":"1"},"DelegateParser":{"Parser0":["2"]},"SequenceParser2":{"Parser0":["+(1,2)"]},"SequenceParser3":{"Parser0":["+(1,2,3)"]},"SequenceParser4":{"Parser0":["+(1,2,3,4)"]},"SequenceParser5":{"Parser0":["+(1,2,3,4,5)"]},"SequenceParser8":{"Parser0":["+(1,2,3,4,5,6,7,8)"]},"ListParser":{"Parser0":["2"]},"OptionalParser":{"DelegateParser":["1","1"],"Parser0":["1"],"DelegateParser.T":"1"},"SkipParser":{"DelegateParser":["1","1"],"Parser0":["1"],"DelegateParser.T":"1"},"EpsilonParser":{"Parser0":["1"]},"NewlineParser":{"Parser0":["String"]},"AnyCharacterParser":{"Parser0":["String"]},"SingleCharacterParser":{"Parser0":["String"]},"PredicateParser":{"Parser0":["String"]},"RepeatingCharacterParser":{"Parser0":["String"]},"LazyRepeatingParser":{"LimitedRepeatingParser":["1"],"RepeatingParser":["1","List<1>"],"DelegateParser":["1","List<1>"],"Parser0":["List<1>"],"DelegateParser.T":"1"},"LimitedRepeatingParser":{"RepeatingParser":["1","List<1>"],"DelegateParser":["1","List<1>"],"Parser0":["List<1>"]},"PossessiveRepeatingParser":{"RepeatingParser":["1","List<1>"],"DelegateParser":["1","List<1>"],"Parser0":["List<1>"],"DelegateParser.T":"1"},"RepeatingParser":{"DelegateParser":["1","2"],"Parser0":["2"]},"_WebWorkerChannel":{"WorkerChannel":[]},"InternalLogger":{"Logger":[]},"_NoLogOutput":{"LogOutput":[]},"_DummyPrinter":{"LogPrinter":[]},"_LogAllFilter":{"LogFilter":[]},"SquadronCanceledException":{"SquadronException":[],"CanceledException":[]},"SquadronCanceledExceptions":{"SquadronCanceledException":[],"SquadronException":[],"CanceledException":[]},"SquadronError":{"SquadronException":[]},"SquadronTimeoutException":{"SquadronCanceledException":[],"SquadronException":[],"CanceledException":[]},"WorkerException":{"SquadronException":[]},"CancelationTokenReference":{"SquadronCancelationToken":[],"CancelationToken":[]},"SquadronCancelationToken":{"CancelationToken":[]},"XmlDefaultEntityMapping":{"XmlEntityMapping":[]},"XmlDescendantsIterable":{"Iterable":["XmlNode"],"Iterable.E":"XmlNode"},"XmlDescendantsIterator":{"Iterator":["XmlNode"]},"XmlAttribute":{"XmlNode":[],"XmlHasParent":["XmlNode"],"XmlHasVisitor":[],"XmlParentBase":[],"XmlHasName":[],"XmlHasParent.T":"XmlNode"},"XmlCDATA":{"XmlNode":[],"XmlHasParent":["XmlNode"],"XmlHasVisitor":[],"XmlParentBase":[],"XmlHasParent.T":"XmlNode"},"XmlComment":{"XmlNode":[],"XmlHasParent":["XmlNode"],"XmlHasVisitor":[],"XmlParentBase":[],"XmlHasParent.T":"XmlNode"},"XmlData":{"XmlNode":[],"XmlHasParent":["XmlNode"],"XmlHasVisitor":[],"XmlParentBase":[]},"XmlDeclaration":{"XmlHasAttributes":[],"XmlNode":[],"XmlHasParent":["XmlNode"],"XmlHasVisitor":[],"XmlParentBase":[],"XmlHasParent.T":"XmlNode"},"XmlDoctype":{"XmlNode":[],"XmlHasParent":["XmlNode"],"XmlHasVisitor":[],"XmlParentBase":[],"XmlHasParent.T":"XmlNode"},"XmlDocument":{"XmlNode":[],"XmlHasChildren":["XmlNode"],"XmlHasVisitor":[],"XmlParentBase":[],"XmlHasChildren.T":"XmlNode"},"XmlElement":{"XmlHasAttributes":[],"XmlNode":[],"XmlHasParent":["XmlNode"],"XmlHasChildren":["XmlNode"],"XmlHasVisitor":[],"XmlParentBase":[],"XmlHasName":[],"XmlHasChildren.T":"XmlNode","XmlHasParent.T":"XmlNode"},"XmlNode":{"XmlHasVisitor":[],"XmlParentBase":[]},"XmlProcessing":{"XmlNode":[],"XmlHasParent":["XmlNode"],"XmlHasVisitor":[],"XmlParentBase":[],"XmlHasParent.T":"XmlNode"},"XmlText":{"XmlNode":[],"XmlHasParent":["XmlNode"],"XmlHasVisitor":[],"XmlParentBase":[],"XmlHasParent.T":"XmlNode"},"XmlCharacterDataParser":{"Parser0":["String"]},"XmlName":{"XmlHasParent":["XmlNode"],"XmlHasVisitor":[],"XmlParentBase":[]},"XmlNodeList":{"DelegatingList":["1"],"List":["1"],"_DelegatingIterableBase":["1"],"EfficientLengthIterable":["1"],"Iterable":["1"]},"XmlPrefixName":{"XmlName":[],"XmlHasParent":["XmlNode"],"XmlHasVisitor":[],"XmlParentBase":[],"XmlHasParent.T":"XmlNode"},"XmlSimpleName":{"XmlName":[],"XmlHasParent":["XmlNode"],"XmlHasVisitor":[],"XmlParentBase":[],"XmlHasParent.T":"XmlNode"},"XmlWriter":{"XmlVisitor":[]},"_XmlEventEncoderSink":{"XmlEventVisitor":[],"Sink":["List<XmlEvent>"]},"_XmlNodeDecoderSink":{"XmlEventVisitor":[],"Sink":["List<XmlEvent>"]},"XmlCDATAEvent":{"XmlEvent":[]},"XmlCommentEvent":{"XmlEvent":[]},"XmlDeclarationEvent":{"XmlEvent":[]},"XmlDoctypeEvent":{"XmlEvent":[]},"XmlEndElementEvent":{"XmlEvent":[]},"XmlProcessingEvent":{"XmlEvent":[]},"XmlStartElementEvent":{"XmlEvent":[]},"XmlTextEvent":{"XmlEvent":[]},"XmlRawTextEvent":{"XmlTextEvent":[],"XmlEvent":[]},"XmlEventIterable":{"Iterable":["XmlEvent"],"Iterable.E":"XmlEvent"},"XmlEventIterator":{"Iterator":["XmlEvent"]},"ConversionSink":{"Sink":["1"]},"ResolvableParser":{"Parser0":["1"]}}'));
   A._Universe_addErasedTypes(init.typeUniverse, JSON.parse('{"UnmodifiableListBase":1,"__CastListBase__CastIterableBase_ListMixin":2,"NativeTypedArray":1,"UnmodifiableMapBase":2}'));
   var string$ = {
     Error_: "Error handler must accept one Object or one Object and a StackTrace as arguments, and return a value of the returned future's type",
@@ -24871,7 +24928,9 @@
       EpsilonParser_String: findType("EpsilonParser<String>"),
       EpsilonParser_void: findType("EpsilonParser<~>"),
       Error: findType("Error"),
+      Excel: findType("Excel"),
       ExcelColor: findType("ExcelColor"),
+      Excel_Function_dynamic: findType("Excel(@)"),
       Failure: findType("Failure"),
       FastList_String: findType("FastList<String>"),
       File: findType("File"),
@@ -24901,6 +24960,8 @@
       JSArray_CellStyle: findType("JSArray<CellStyle>"),
       JSArray_ExcelColor: findType("JSArray<ExcelColor>"),
       JSArray_Future_void: findType("JSArray<Future<~>>"),
+      JSArray_List_nullable_CellValue: findType("JSArray<List<CellValue?>>"),
+      JSArray_List_nullable_Data: findType("JSArray<List<Data?>>"),
       JSArray_Parser_DtdExternalId: findType("JSArray<Parser0<DtdExternalId>>"),
       JSArray_Parser_Object: findType("JSArray<Parser0<Object>>"),
       JSArray_Parser_Record_2_String_and_XmlAttributeType: findType("JSArray<Parser0<+(String,XmlAttributeType)>>"),
@@ -24937,7 +24998,10 @@
       ListMapView_ExcelColor: findType("ListMapView<ExcelColor>"),
       List_CellStyle: findType("List<CellStyle>"),
       List_Int32List: findType("List<Int32List>"),
+      List_List_dynamic: findType("List<List<@>>"),
+      List_List_dynamic_Function_dynamic: findType("List<List<@>>(@)"),
       List_List_int: findType("List<List<int>>"),
+      List_List_nullable_CellValue: findType("List<List<CellValue?>>"),
       List_Object: findType("List<Object>"),
       List_String: findType("List<String>"),
       List_Uint8List: findType("List<Uint8List>"),
@@ -24946,14 +25010,14 @@
       List__BorderSet: findType("List<_BorderSet>"),
       List__FontStyle: findType("List<_FontStyle>"),
       List_dynamic: findType("List<@>"),
+      List_dynamic_Function_dynamic: findType("List<@>(@)"),
       List_int: findType("List<int>"),
       List_int_Function_dynamic: findType("List<int>(@)"),
+      List_nullable_Data: findType("List<Data?>"),
       MapEntry_String_ExcelColor: findType("MapEntry<String,ExcelColor>"),
       MapEntry_String_int: findType("MapEntry<String,int>"),
-      Map_String_Sheet: findType("Map<String,Sheet>"),
       Map_String_int: findType("Map<String,int>"),
       Map_dynamic_dynamic: findType("Map<@,@>"),
-      Map_dynamic_dynamic_Function_dynamic: findType("Map<@,@>(@)"),
       Map_int_Data: findType("Map<int,Data>"),
       Map_of_int_and_dynamic_Function_List_dynamic: findType("Map<int,@(List<@>)>"),
       Map_of_nullable_Object_and_nullable_Object: findType("Map<Object?,Object?>"),
@@ -25075,7 +25139,10 @@
       int_Function_dynamic: findType("int(@)"),
       legacy_Never: findType("0&*"),
       legacy_Object: findType("Object*"),
+      nullable_CellValue: findType("CellValue?"),
+      nullable_Data: findType("Data?"),
       nullable_DtdExternalId: findType("DtdExternalId?"),
+      nullable_Excel_Function_dynamic: findType("Excel?(@)"),
       nullable_Future_Null: findType("Future<Null>?"),
       nullable_Gamepad: findType("Gamepad?"),
       nullable_JSObject: findType("JSObject?"),
@@ -25834,6 +25901,9 @@
   Function.prototype.call$2 = function(a, b) {
     return this(a, b);
   };
+  Function.prototype.call$1$0 = function() {
+    return this();
+  };
   Function.prototype.call$1$1 = function(a) {
     return this(a);
   };
@@ -25843,14 +25913,8 @@
   Function.prototype.call$4 = function(a, b, c, d) {
     return this(a, b, c, d);
   };
-  Function.prototype.call$1$0 = function() {
-    return this();
-  };
   Function.prototype.call$2$1 = function(a) {
     return this(a);
-  };
-  Function.prototype.call$2$0 = function() {
-    return this();
   };
   Function.prototype.call$5 = function(a, b, c, d, e) {
     return this(a, b, c, d, e);
